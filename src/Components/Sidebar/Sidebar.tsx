@@ -2,7 +2,7 @@
 import logoLupeon from '../../assets/img_lupeon/logo_mobile.png';
 import Config from '../../assets/img_icones/Config.png';
 import Sino from '../../assets/img_icones/Sino.png';
-import Monitor from '../../assets/img_icones/Monitor.png';
+import Monitor from '../../assets/img_icones/monitor.png';
 import Seta from '../../assets/img_icones/seta_esquerda.png';
 
 import { ContainerSidebar, ContainerSidebarMenu } from "./Style.sidebar";
