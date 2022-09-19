@@ -12,9 +12,7 @@ export function Home(){
                 <input type="text" placeholder="Sua pesquisa aqui"/>
                 <button type="button"><img src={lupa} alt="Pesquisar" /></button>
             </main>
-            
         </ContainerHome>
-        
     )
 
 }

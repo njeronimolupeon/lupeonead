@@ -2,7 +2,12 @@ import { ContainerLogin } from "./Style.login";
 
 /* Import de imagens */
 import logoLupeon from '../../assets/img_lupeon/logo_lupeon.png';
-import { FormEvent, useContext, useState } from "react";
+import cadeado from '../../assets/img_icones/cadeado.png';
+import emailfoto from '../../assets/img_icones/email.png';
+import olhoaberto from '../../assets/img_icones/olhoaberto.png';
+import olhofechado from '../../assets/img_icones/olhofechado.png';
+
+import { FormEvent, useContext, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
@@ -11,8 +16,11 @@ export function Login(){
 
     const[email, setEmail] = useState('');
     const[senha, setSenha] = useState('');
+    const[eyesClosed, setEyesClosed] = useState(true);
     const history = useNavigate();
     const auth = useContext(AuthContext);
+    const input = useRef<HTMLInputElement | null>(null);
+
 
     async function onSubmitForm(event: FormEvent){
         event.preventDefault();
@@ -31,6 +39,20 @@ export function Login(){
             toast.error('Erro ao efetuar o login, verifique seus dados e tente novamente.'); 
         }
 
+    }
+
+    function handleShowPass() {
+        if (input.current?.type === 'password') {
+            setEyesClosed(false);
+            input.current.type = "text"
+
+        } else {
+            setEyesClosed(true);
+
+            if(input.current?.type == "text"){
+                input.current.type = "password";
+            }
+        }
     }
 
     if(auth.user){
@@ -53,26 +75,47 @@ export function Login(){
 
                 <main>
                     <div className="container_inputs">
-                        <strong>Seu usuário</strong>
+                        <div className="container_fotos_input">
+                            <img src={emailfoto} alt="Email" />
+                        </div>
                         
-                        <input 
-                            type="text" 
-                            placeholder="Digite seu usuário"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-
+                        <div>
+                            <strong>Seu usuário</strong>
+                            
+                            <input 
+                                type="text" 
+                                placeholder="Digite seu usuário"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
                     </div>
                     <div className="container_inputs">
-                        <strong>Sua senha</strong>
-                        
-                        <input 
-                            type="password" 
-                            placeholder="Digite sua senha"
-                            value={senha}
-                            onChange={(e) => setSenha(e.target.value)}
-                        />
+                        <div className="container_fotos_input">
+                            <img src={cadeado} alt="Cadeado" />
+                        </div>
 
+                        <div className="container_senha">
+                            <strong>Sua senha</strong>
+                            
+                            <input 
+                                ref={input}
+                                type="password" 
+                                placeholder="Digite sua senha"
+                                value={senha}
+                                onChange={(e) => setSenha(e.target.value)}
+                            />
+                            <div className="input-image-olho">
+                                <button type="button" onClick={handleShowPass}>
+                                    { eyesClosed ? 
+                                        <img src={olhofechado} alt="Olhos"  /> 
+                                        : 
+                                        <img src={olhoaberto} alt="Olhos"  /> 
+                                    } 
+                                </button>
+                            </div>
+                        </div>
+                        
                     </div>
                 </main>
 

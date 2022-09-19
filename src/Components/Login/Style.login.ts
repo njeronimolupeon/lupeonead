@@ -6,17 +6,17 @@ export const ContainerLogin = styled.div`
     background-color: var(--azul-primary);
     height: 100vh;
     width: 100%;
-    /* z-index: 10000; */
     position: fixed;
     
     display: flex;
     align-items: center;
     justify-content: center;
+    
 
     form{
         background-color: var(--white);
         opacity: 0.9;
-
+        border-radius: 6px;
         min-width: 20rem;
         display: flex;
         flex-direction: column;
@@ -34,17 +34,20 @@ export const ContainerLogin = styled.div`
                 text-align: center;
 
                 img{
-                    width: 50%;
+                    width: 60%;
                 }
 
                 p{
-                    font-size: 0.5rem;
-                    
+                    font-size: 0.65rem;
                 }
             }
 
             .tt_login{
                 margin: 2.5rem 0rem;
+
+                h2{
+                    font-size: 0.8rem;
+                }
             }
         
         }
@@ -55,19 +58,20 @@ export const ContainerLogin = styled.div`
             .container_inputs{
                 border:0.1rem solid var(--gray-3);
                 border-radius:4px;
-                padding: 0.2rem 0.5rem 0.1rem 0.5rem;
+                padding: 0.4rem 0.5rem 0.1rem 0.5rem;
 
                 display: flex;
-                align-items: flex-start;
+                align-items: center;
                 justify-content: flex-start;
-                flex-direction: column;
                 margin-bottom: 1rem;
+                line-height: 4px;
 
                 strong{
                     font-size: 0.55rem;
                     margin-left: 0.3rem;
                     color: var(--gray-info);
                     font-weight: 600;
+                    
                 }
 
                 input[type="text"],
@@ -82,6 +86,14 @@ export const ContainerLogin = styled.div`
                     &:focus{
                         outline: none;
                     }
+                }
+            }
+
+            .container_fotos_input{
+                margin-right: 0.5rem;
+
+                img{
+                    width: 1.1rem;
                 }
             }
         }
@@ -104,7 +116,7 @@ export const ContainerLogin = styled.div`
                         font-weight: 600;
                         margin-left: 0.4rem;
                         color: var(--gray-info);
-                        font-size: 0.7rem;
+                        font-size: 0.6rem;
                     }
                 }
             }
@@ -112,26 +124,27 @@ export const ContainerLogin = styled.div`
             .container_esquecisenha{
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: right;
 
                 span{
                     color: var(--azul-info);
                     font-weight: 600;
-                    font-size: 0.7rem;
+                    font-size: 0.6rem;
 
                     cursor: pointer;
                 }
             }
 
             button[type="submit"]{
-                margin-top: 2.5rem;
+                margin-top: 2rem;
                 width: 100%;
                 padding: 0.5rem;
                 background-color: var(--azul-info);
                 color: var(--white);
                 border: none;
                 border-radius: 2px;
-                font-size: 0.7rem;
+                font-size: 0.75rem;
+                font-weight: 500;
                 cursor: pointer;
 
                 &:focus{
@@ -145,6 +158,41 @@ export const ContainerLogin = styled.div`
                 &:active{
                     opacity: 1;
                 }
+            }
+        }
+    }
+
+    .container_senha{
+        position: relative;
+        width: 100%;
+    }
+
+    .input-image-olho{
+        position: absolute;
+        top: 0.4rem;
+        right: 0px;
+        display: flex;
+        align-items: center;
+
+        button{
+            background: transparent;
+            border: none;
+            cursor: pointer;
+
+            &:hover{
+                opacity: 0.5;
+            }
+
+            &:active{
+                opacity: 1;
+            }
+
+            &:focus{
+                outline: none;
+            }
+
+            img{
+                width: 1rem;
             }
         }
     }

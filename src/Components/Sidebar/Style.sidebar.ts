@@ -4,12 +4,14 @@ export const ContainerSidebar = styled.div`
     display: flex;
     position: relative;
 
-    .container_sidebar{
+    .container_sidebar,
+    .container_sidebar_mobile{
         height: 100vh;
-        width: 5rem;
+        width: 3.5rem;
         background-color: var(--gray-2);
         border-top-right-radius: 6px;
         border-bottom-right-radius: 6px;
+        transition: 0.2s all ;
 
         padding: 1rem 2%;
         display: flex;
@@ -18,6 +20,14 @@ export const ContainerSidebar = styled.div`
 
         position: relative;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;    
+
+        
+    }
+
+    .container_sidebar{
+        @media (max-width:768px){
+            display: none;
+        }
     }
     
 
@@ -103,6 +113,75 @@ export const ContainerSidebar = styled.div`
             
         }
     }
+
+    .menu_hamburguer_mobile{
+
+        .menu {
+            position: fixed;
+            left: 0.3rem;
+            z-index: 50000;
+        }
+
+        .hamburguer {
+            position: relative;
+            display: block;
+            background: #0f418a;
+            width: 30px;
+            height: 2px;
+            top: 0.2rem;
+            left: 0.3rem;
+            transition: 0.5s ease-in-out;
+        }
+
+        .hamburguer:before,
+        .hamburguer:after {
+        background: #0f418a;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: 0.5s ease-in-out;
+        }
+
+        .hamburguer:before {
+        top: -10px;
+        }
+
+        .hamburguer:after {
+        bottom: -10px;
+        }
+
+        input {
+            display: none;
+        }
+
+        input:checked ~ label .hamburguer {
+            transform: rotate(45deg);
+        }
+
+        input:checked ~ label .hamburguer:before {
+            transform: rotate(90deg);
+            top: 0;
+        }
+
+        input:checked ~ label .hamburguer:after {
+            transform: rotate(90deg);
+            bottom: 0;
+        }
+
+        button{
+            background-color: transparent;
+            border: none;
+        }
+
+        @media (min-width:768px){
+            display: none;
+        }
+
+
+    }
+    
 `
 
 export const ContainerSidebarMenu = styled.div`
@@ -168,3 +247,11 @@ export const ContainerSidebarMenu = styled.div`
     
 
 `
+
+
+
+// export const SidebarMenuResponsive = styled.div`
+
+
+
+// `

@@ -4,6 +4,7 @@ import Config from '../../assets/img_icones/Config.png';
 import Sino from '../../assets/img_icones/Sino.png';
 import Monitor from '../../assets/img_icones/monitor.png';
 import Seta from '../../assets/img_icones/seta_esquerda.png';
+import Menu from '../../assets/img_icones/menu.png';
 
 import { ContainerSidebar, ContainerSidebarMenu } from "./Style.sidebar";
 import { useContext, useState } from 'react';
@@ -13,6 +14,7 @@ import { AuthContext } from '../../contexts/Auth/AuthContext';
 export function Sidebar(){
 
     const[menuOpen, setMenuOpen] = useState(false);
+    const[menuOpenMobile, setMenuOpenMobile] = useState(false);
     const Auth = useContext(AuthContext);
     const history = useNavigate();
 
@@ -20,11 +22,58 @@ export function Sidebar(){
         history("/login");
         await Auth.signout();
     }
-    
+
     if(Auth.user)
     {
         return(
             <ContainerSidebar>
+                <div className="menu_hamburguer_mobile">
+                    <button>
+                        <input id="menu-hamburguer" type="checkbox" onClick={() => setMenuOpenMobile(!menuOpenMobile)}/>
+
+                        <label htmlFor="menu-hamburguer">
+                            <div className="menu">
+                                <span className="hamburguer"></span>
+                            </div>
+                        </label>
+                    </button>
+
+                    <div className='container_sidebar_mobile' style={menuOpenMobile == true? {} : {display: 'none'}}>
+                        <header>
+                            <img src={logoLupeon}/>
+                        </header>
+                        <main>
+                            <div onClick={() => setMenuOpen(true)}>
+                                <img src={Monitor} alt="" />
+                                <strong>Monitor</strong>
+                            </div>
+                            <div onClick={() => setMenuOpen(true)}>
+                                <img src={Monitor} alt="" />
+                                <strong>Monitor</strong>
+                            </div>
+                            <div onClick={() => setMenuOpen(true)}>
+                                <img src={Monitor} alt="" />
+                                <strong>Monitor</strong>
+                            </div>
+                            <div onClick={() => setMenuOpen(true)}>
+                                <img src={Monitor} alt="" />
+                                <strong>Monitor</strong>
+                            </div>
+                        </main>
+                        <footer>
+                            <div>
+                                <img src={Config} alt="Configurações" />
+                                <img src={Sino} alt="Notificações" />
+                                
+                                <button onClick={logOut} style={{cursor:'pointer'}}>Sair</button>
+                                <div className='circulo_nome'>
+                                    <label>NJ</label>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+
                 <div className='container_sidebar'>
                     <header>
                         <img src={logoLupeon}/>
@@ -59,6 +108,7 @@ export function Sidebar(){
                         </div>
                     </footer>
                 </div>
+                
                 <ContainerSidebarMenu>
                     <div className='sidebar-menu' style={menuOpen == true? {} : {display: 'none'}}>
                         <div className='sidebar-menu-content'>
@@ -91,7 +141,6 @@ export function Sidebar(){
                     </div>
                 </ContainerSidebarMenu>
             </ContainerSidebar>
-                
         )
     }
     else{
