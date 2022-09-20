@@ -57,8 +57,9 @@ export function Login(){
 
     if(auth.user){
         history("/home"); 
-    }else{
-        return(
+    }
+        
+    return(
             <ContainerLogin>
     
                 <form onSubmit={onSubmitForm}>
@@ -136,10 +137,6 @@ export function Login(){
     
                 </form>
             </ContainerLogin>
-        )
-    }
+    )
 
-    return <></>
-
-    
 }
