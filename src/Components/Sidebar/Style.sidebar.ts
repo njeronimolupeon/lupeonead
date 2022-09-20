@@ -37,7 +37,7 @@ export const ContainerSidebar = styled.div`
         justify-content: center;
     
         img{
-            width: 3.5rem;
+            width: 2.5rem;
         }
     }
 
@@ -59,11 +59,11 @@ export const ContainerSidebar = styled.div`
             
 
             img{
-                width: 2rem;
+                width: 1.3rem;
             }
 
             strong{
-                font-size: 0.7rem;
+                font-size: 0.5rem;
                 color: var(--azul-primary);
             }
 
@@ -93,9 +93,10 @@ export const ContainerSidebar = styled.div`
             align-items: center;
             flex-direction: column;
             gap: 1rem;
+            position: relative;
 
             img{
-                width:1.3rem;
+                width:1rem;
             }
 
             .circulo_nome{
@@ -181,6 +182,10 @@ export const ContainerSidebar = styled.div`
 
 
     }
+
+    /* Modal user */
+
+    
     
 `
 
@@ -247,11 +252,3 @@ export const ContainerSidebarMenu = styled.div`
     
 
 `
-
-
-
-// export const SidebarMenuResponsive = styled.div`
-
-
-
-// `

@@ -57,85 +57,87 @@ export function Login(){
 
     if(auth.user){
         history("/home"); 
-    }
-
-    return(
-        <ContainerLogin>
-
-            <form onSubmit={onSubmitForm}>
-                <header>
-                    <div>
-                        <img src={logoLupeon} alt="Logo Lupeon TMS As a Service"/>
-                        <p>O primeiro <b>TMS AS SERVICE</b></p>
-                    </div>
-                    <div className="tt_login">
-                        <h2>Log In</h2>
-                    </div>
-                </header>
-
-                <main>
-                    <div className="container_inputs">
-                        <div className="container_fotos_input">
-                            <img src={emailfoto} alt="Email" />
-                        </div>
-                        
+    }else{
+        return(
+            <ContainerLogin>
+    
+                <form onSubmit={onSubmitForm}>
+                    <header>
                         <div>
-                            <strong>Seu usuário</strong>
-                            
-                            <input 
-                                type="text" 
-                                placeholder="Digite seu usuário"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
+                            <img src={logoLupeon} alt="Logo Lupeon TMS As a Service"/>
+                            <p>O primeiro <b>TMS AS SERVICE</b></p>
                         </div>
-                    </div>
-                    <div className="container_inputs">
-                        <div className="container_fotos_input">
-                            <img src={cadeado} alt="Cadeado" />
+                        <div className="tt_login">
+                            <h2>Log In</h2>
                         </div>
-
-                        <div className="container_senha">
-                            <strong>Sua senha</strong>
+                    </header>
+    
+                    <main>
+                        <div className="container_inputs">
+                            <div className="container_fotos_input">
+                                <img src={emailfoto} alt="Email" />
+                            </div>
                             
-                            <input 
-                                ref={input}
-                                type="password" 
-                                placeholder="Digite sua senha"
-                                value={senha}
-                                onChange={(e) => setSenha(e.target.value)}
-                            />
-                            <div className="input-image-olho">
-                                <button type="button" onClick={handleShowPass}>
-                                    { eyesClosed ? 
-                                        <img src={olhofechado} alt="Olhos"  /> 
-                                        : 
-                                        <img src={olhoaberto} alt="Olhos"  /> 
-                                    } 
-                                </button>
+                            <div>
+                                <strong>Seu usuário</strong>
+                                
+                                <input 
+                                    type="text" 
+                                    placeholder="Digite seu usuário"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
                             </div>
                         </div>
-                        
-                    </div>
-                </main>
-
-                <footer>
-                    <div className="container_footer">
-                        <div className="container_mantlogado">
-                            <input type="checkbox" id="checklistLogin"/>
-                            <label htmlFor="checklistLogin">Manter Logado</label>
+                        <div className="container_inputs">
+                            <div className="container_fotos_input">
+                                <img src={cadeado} alt="Cadeado" />
+                            </div>
+    
+                            <div className="container_senha">
+                                <strong>Sua senha</strong>
+                                
+                                <input 
+                                    ref={input}
+                                    type="password" 
+                                    placeholder="Digite sua senha"
+                                    value={senha}
+                                    onChange={(e) => setSenha(e.target.value)}
+                                />
+                                <div className="input-image-olho">
+                                    <button type="button" onClick={handleShowPass}>
+                                        { eyesClosed ? 
+                                            <img src={olhofechado} alt="Olhos"  /> 
+                                            : 
+                                            <img src={olhoaberto} alt="Olhos"  /> 
+                                        } 
+                                    </button>
+                                </div>
+                            </div>
+                            
                         </div>
-
-                        <div className="container_esquecisenha">
-                            <span>Esqueci minha senha</span>
+                    </main>
+    
+                    <footer>
+                        <div className="container_footer">
+                            <div className="container_mantlogado">
+                                <input type="checkbox" id="checklistLogin"/>
+                                <label htmlFor="checklistLogin">Manter Logado</label>
+                            </div>
+    
+                            <div className="container_esquecisenha">
+                                <span>Esqueci minha senha</span>
+                            </div>
                         </div>
-                    </div>
+    
+    
+                        <button type="submit">Entrar</button>
+                    </footer>
+    
+                </form>
+            </ContainerLogin>
+        )
+    }
 
-
-                    <button type="submit">Entrar</button>
-                </footer>
-
-            </form>
-        </ContainerLogin>
-    )
+    
 }

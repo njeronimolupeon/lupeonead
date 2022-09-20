@@ -1,26 +1,38 @@
 /* Import de imagens */
 import logoLupeon from '../../assets/img_lupeon/logo_mobile.png';
-import Config from '../../assets/img_icones/Config.png';
+import Close from '../../assets/img_icones/close.png';
 import Sino from '../../assets/img_icones/Sino.png';
 import Monitor from '../../assets/img_icones/monitor.png';
 import Seta from '../../assets/img_icones/seta_esquerda.png';
-import Menu from '../../assets/img_icones/menu.png';
+
 
 import { ContainerSidebar, ContainerSidebarMenu } from "./Style.sidebar";
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Modal from 'react-modal';
 import { AuthContext } from '../../contexts/Auth/AuthContext';
+
+Modal.setAppElement('#root');
 
 export function Sidebar(){
 
     const[menuOpen, setMenuOpen] = useState(false);
     const[menuOpenMobile, setMenuOpenMobile] = useState(false);
+    const[openModalUser, setOpenModalUser] = useState(false);
     const Auth = useContext(AuthContext);
     const history = useNavigate();
 
     async function logOut(){
         history("/login");
         await Auth.signout();
+    }
+
+    function onRequestClose(){
+        setOpenModalUser(false);
+    }
+
+    function onRequestOpen(){
+        setOpenModalUser(true);
     }
 
     if(Auth.user)
@@ -62,11 +74,10 @@ export function Sidebar(){
                         </main>
                         <footer>
                             <div>
-                                <img src={Config} alt="Configurações" />
                                 <img src={Sino} alt="Notificações" />
                                 
-                                <button onClick={logOut} style={{cursor:'pointer'}}>Sair</button>
-                                <div className='circulo_nome'>
+                                <div className='circulo_nome'
+                                onClick={onRequestOpen}>
                                     <label>NJ</label>
                                 </div>
                             </div>
@@ -98,13 +109,27 @@ export function Sidebar(){
                     </main>
                     <footer>
                         <div>
-                            <img src={Config} alt="Configurações" />
                             <img src={Sino} alt="Notificações" />
                             
-                            <button onClick={logOut} style={{cursor:'pointer'}}>Sair</button>
-                            <div className='circulo_nome'>
-                                <label>NJ</label>
+                            <div className='circulo_nome'
+                                onClick={onRequestOpen}>
+                                    <label>NJ</label>
                             </div>
+                                <Modal
+                                isOpen={openModalUser}
+                                onRequestClose={onRequestClose}
+                                overlayClassName="react-modal-overlay"
+                                className="react-modal-content">
+                                    <button 
+                                    type='button'
+                                    onClick={onRequestClose}
+                                    className="react-modal-close">
+                                        <img src={Close} alt="Fechar" />
+                                    </button>
+                                    
+                                    <p>Editar perfil</p>
+                                    <button onClick={logOut} style={{cursor:'pointer'}}>Sair</button>
+                                </Modal>
                         </div>
                     </footer>
                 </div>
