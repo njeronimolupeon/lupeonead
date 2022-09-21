@@ -105,10 +105,20 @@ export const ContainerSidebar = styled.div`
                 padding: 0.5rem 0.5rem;
                 text-align: center;
                 border-radius: 50%;
+                cursor: pointer;
 
                 label{
                     font-size: 0.75rem;
                     font-weight: 500;
+                    cursor: pointer;
+                }
+
+                &:hover{
+                    filter: brightness(0.8);
+                }
+
+                &:active{
+                    filter: brightness(1);
                 }
             }
             
@@ -194,11 +204,11 @@ export const ContainerSidebarMenu = styled.div`
 
     .sidebar-menu{
         
-        width: 10rem;
+        width: 7rem;
         height: 97vh;
         background-color: var(--azul-primary);
         position: absolute;
-        left: 5rem;
+        left: 3.5rem;
         top: 1rem;
         color: var(--white);
         box-shadow: var(--boxshadow);
@@ -238,7 +248,7 @@ export const ContainerSidebarMenu = styled.div`
             text-decoration: none;
             text-align: center;
             color: var(--white);
-            font-size: 0.875rem;
+            font-size: 0.775rem;
             padding: 1rem;
             border-bottom: 0.1rem solid var(--gray-3);            
             width: 100%;

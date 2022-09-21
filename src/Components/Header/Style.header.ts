@@ -5,14 +5,14 @@ import imgFundoHeader from '../../assets/img_lupeon/fundo_header_ead.png';
 export const ContainerHeader = styled.div`
 
     width: 100%;
-    height: 3rem;
+    height: 2rem;
     display: flex;
     background-color: var(--white);
     border-radius: 8px;
 
     .titulo_header{
         width: 40%;
-        font-size: 1rem;
+        font-size: 0.6rem;
         padding-left: 1rem;
         display: flex;
         align-items: center;

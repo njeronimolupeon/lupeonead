@@ -126,9 +126,12 @@ export function Sidebar(){
                                     className="react-modal-close">
                                         <img src={Close} alt="Fechar" />
                                     </button>
-                                    
-                                    <p>Editar perfil</p>
-                                    <button onClick={logOut} style={{cursor:'pointer'}}>Sair</button>
+
+                                    <Link to="/usuario" className='link_to_usuario'>
+                                       <p>Editar perfil</p> 
+                                    </Link>
+
+                                    <button onClick={logOut} className="btn_logout">Sair</button>
                                 </Modal>
                         </div>
                     </footer>
@@ -145,16 +148,16 @@ export function Sidebar(){
                                 <Link to={'/login'}
                                 style={{textDecoration: 'none', width: '100%'}}>
                                     <p>
-                                        Subtitulo
+                                        Login
                                     </p>
                                 </Link>
-                                <Link to={'/lupeon'} 
+                                <Link to={'/home'} 
                                 style={{textDecoration: 'none', width: '100%'}}>
-                                    <p>Subtitulo</p>
+                                    <p>Home</p>
                                 </Link>
-                                <Link to={'/ead'} 
+                                <Link to={'/usuario'} 
                                 style={{textDecoration: 'none', width: '100%'}}>
-                                    <p>Subtitulo</p>
+                                    <p>Usuário</p>
                                 </Link>
                                 <Link to={'/aula1'}
                                 style={{textDecoration: 'none', width: '100%'}}>

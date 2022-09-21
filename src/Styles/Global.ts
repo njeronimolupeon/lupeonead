@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
         --azul-complementary:#5CC4FF;
         --azul-complementary_:rgba(19, 108, 251, 0.2);
         --azul-info:#0D45F6;
+        --hover-azul:#509BF2;
 
         /* Identidade visual */
 
@@ -23,6 +24,7 @@ export const GlobalStyles = createGlobalStyle`
         /* Tons de cinza */
 
         --gray-3:rgba(130, 130, 130, 0.5);
+        --gray-grafic:#C4C4C4;
         --gray-info: #515251;
         --gray-2: #F4F4F4;
         --gray-4: #DCDCE0;
@@ -66,13 +68,48 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .react-modal-content{
-        width: 100%;
+        width: 10rem;
         max-width: 500px;
         background-color: var(--white);
         border-radius: 0.25rem;
         padding: 1rem;
         position: relative;
         font-size: 0.875rem;
+    }
+
+    .link_to_usuario{
+        text-decoration: none;
+        color: #0f418a;
+      text-align: center;
+      &:hover{
+            opacity: 0.8;
+          }
+
+        p{
+          font-size: 0.775rem;
+          font-weight: 600;
+
+          
+        }
+    }
+
+    .btn_logout{
+      background-color: transparent;
+      border: none;
+      width: 100%;
+      border: 0.1rem solid var(--danger);
+      color: var(--danger);
+      padding: 0.1rem;
+      border-radius: 0.2rem;
+      font-size: 0.775rem;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: 0.2s all;
+
+      &:hover{
+        background-color: var(--danger);
+        color: var(--white);
+      }
     }
 
     .react-modal-close{
@@ -83,8 +120,12 @@ export const GlobalStyles = createGlobalStyle`
       cursor: pointer;
       background: transparent;
       transition: filter 0.2s;
-      padding: 0.2rem 0.35rem 0.1rem 0.35rem;
+      padding: 0rem 0.35rem 0.1rem 0.35rem;
       border-radius: 50%;
+
+      img{
+        width: 0.6rem;
+      }
 
       &:hover{
         background: var(--gray-4);

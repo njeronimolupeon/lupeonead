@@ -3,7 +3,6 @@ import { ContainerPreloader } from "./Style.preloader";
 /* Import images */
 
 import logoLupeon from '../../assets/img_lupeon/logo_lupeon_preloader.png';
-import logoMobile from '../../assets/img_lupeon/logo_mobile.png';
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 

@@ -17,14 +17,14 @@ export const ContainerHome = styled.div`
         margin: 1rem 1rem 0rem 1rem;
         padding: 0rem 1rem;
         background: var(--white);
-        height: 3rem;
+        height: 2rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
 
         input[type="text"]{
             background-color: transparent;
-            padding: 0.2rem;
+            padding: 0.1rem;
             font-size: 0.775rem;
             font-weight: 600;
             border: none;
@@ -55,4 +55,44 @@ export const ContainerHome = styled.div`
     }
 
         
+`
+
+export const ContainerChartHome = styled.div`
+    width: 100%;
+    height: 11rem;
+    display: flex;
+    padding: 1rem;
+
+    
+
+    .container_chart_1{
+        width: 20%;
+        padding:  0rem 0.5rem;
+        display: flex;
+        justify-content: space-between;
+
+        background-color: var(--white);
+        border-radius: 8px;
+        box-shadow: var(--box-shadow);
+
+        .conteudo_chart_1{
+            width: 50%;
+            padding: 1rem 0rem 0rem 0rem;
+
+            .legend_grafic_1{
+                display: flex;
+
+                flex-direction:column;
+                font-size: 0.675rem;
+                width: 50%;
+                
+                span{
+                    margin: 0.3rem 0rem;
+                    height: 0.2rem;
+                }
+            }
+        }
+        
+        
+    }
 `
