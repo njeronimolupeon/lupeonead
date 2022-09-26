@@ -63,10 +63,9 @@ export const ContainerChartHome = styled.div`
     display: flex;
     padding: 1rem;
 
-    
-
     .container_chart_1{
         width: 20%;
+        height: 10rem;
         padding:  0rem 0.5rem;
         display: flex;
         justify-content: space-between;
@@ -94,5 +93,108 @@ export const ContainerChartHome = styled.div`
         }
         
         
+    }
+
+    .container_grafics_2{
+        width: 30%;
+        padding: 0rem 0rem 0rem 0.75rem;
+        display: flex;
+        height: 10rem;
+        flex-direction: column;
+        gap: 1rem;
+        
+        .grafics_2_1{
+            width: 100%;
+            height: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 0.3rem 0.5rem;
+            background-color: var(--white);
+            border-radius: 8px;
+
+            label{
+                background-color: var(--danger);
+                color: var(--white);
+                border-radius: 12px;
+                font-size: 0.75rem;
+                padding: 0.1rem 0.4rem;
+            }
+        }
+
+        .grafics_2_2{
+            width: 100%;
+            height: 50%;
+            display: flex;
+
+            align-items: center;
+            justify-content: space-around;
+            padding: 0.3rem 0.5rem;
+            background-color: var(--white);
+            border-radius: 8px;
+
+            label{
+                background-color: var(--success);
+                color: var(--azul-primary);
+                border-radius: 12px;
+                font-size: 0.75rem;
+                padding: 0.1rem 0.4rem;
+            }
+        } 
+    }
+
+    .container-grafics_3{
+        width: 25%;
+        padding: 0rem 0rem 0rem 0.75rem;
+        display: flex;
+        height: 10rem;
+        flex-direction: column;
+
+        .grafics_3{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-color: var(--white);
+            border-radius: 8px;
+
+            .legend_grafic_3{
+                display: flex;
+                height: 50%;
+                align-items: center;
+                justify-content: space-around;
+                text-align: center;
+                
+                h3{
+                    font-size: 0.8rem;
+                    color:var(--azul-secundary);
+                }
+
+                label{
+                    font-size: 0.675rem;
+                    color:var(--azul-primary);
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .container-grafics_4{
+        width: 25%;
+        padding: 0rem 0rem 0rem 0.75rem;
+        display: flex;
+        height: 10rem;
+        flex-direction: column;       
+
+        .grafics_4{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-color: var(--white);
+            border-radius: 8px;
+        }
     }
 `
