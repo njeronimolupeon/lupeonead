@@ -76,8 +76,10 @@ export const ContainerEditUser = styled.div`
     }
 
     .container_dados_user{
-        padding: 0rem 1rem;
-        width: 40%;
+        padding: 1rem 0rem 0rem 0rem;
+        width: 50%;
+
+        
         p{
             font-size: 0.875rem;
             font-weight: 500;
@@ -98,6 +100,48 @@ export const ContainerEditUser = styled.div`
             }
         }
 
+    }
+
+    .container_content_edituser{
+        display: flex;
+        width: 85%;
+        flex-direction: column;
+        align-items: center;
+        margin: 0rem 1rem;
+        padding: 0.8rem;
+        border: 0.1rem solid var(--gray-4);
+        border-radius: 8px;
+
+        .container_apelidos_edituser{
+            width: 100%;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        button{
+            margin: 1.5rem 0rem;
+            background-color: var(--azul-secundary);
+            color: var(--white);
+            padding: 0.5rem;
+            width: 50%;
+
+            background-color: var(--azul-secundary);
+            border: none;
+            color:var(--white);
+            cursor: pointer;
+            border-radius: 0.25rem;
+            font-size: 0.775rem;
+            transition: 0.2s all;
+
+            &:hover{
+                background-color: var(--hover-azul);
+            }
+
+            &:focus{
+                background-color: var(--azul-secundary);
+            }
+
+        }
     }
 
 `

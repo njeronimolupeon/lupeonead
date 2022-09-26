@@ -59,11 +59,23 @@ export function EditUser(){
                     }} > Editar imagem</button>
                 </div>
                 
-                <div className="container_dados_user">
-                    <p>Edite seu Apelido:</p>
-                    <input type="text" placeholder="Digite o nome que gostaria de ser chamado no Lupeon EAD."/>
+                <div className="container_content_edituser">
+                    <div className="container_apelidos_edituser">
+                        <div className="container_dados_user">
+                            <p>Edite seu Apelido:</p>
+                            <input type="text" placeholder="Digite o nome que gostaria de ser chamado no Lupeon EAD."/>
+                        </div>
+                        <div className="container_dados_user">
+                            <p>Edite sua Sigla:</p>
+                            <input type="text" placeholder="Digite sua sigla como as iniciais do seu nome."/>
+                        </div>
+                    </div>
+                    
+                    <button type="button">Alterar senha</button>
                 </div>
+                
             </div>
+            
         </ContainerEditUser>
     )
 }

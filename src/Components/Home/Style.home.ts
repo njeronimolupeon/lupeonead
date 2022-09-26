@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 
 export const ContainerHome = styled.div`
-    display: flex; 
+    display: flex;
     width: 100%;
 
     header{
-        width: 60%; 
+        width: 60%;
         margin-left: 1rem;
         margin-top: 1rem
     }
@@ -34,6 +34,8 @@ export const ContainerHome = styled.div`
             }
         }
 
+        
+
         button[type="button"]{
             background: transparent;
             border: none;
@@ -54,7 +56,24 @@ export const ContainerHome = styled.div`
         }
     }
 
-        
+    @media(max-width:768px){
+        main{
+            width: 45%;
+            margin:1rem 1rem 0rem 0.4rem;
+        }
+
+        input[type="text"]{
+            width: 100%;
+
+            font-size: 0.5rem;
+        }
+
+        header{
+            width: 50%;
+        }
+    }
+
+
 `
 
 export const ContainerChartHome = styled.div`
@@ -62,6 +81,7 @@ export const ContainerChartHome = styled.div`
     height: 11rem;
     display: flex;
     padding: 1rem;
+
 
     .container_chart_1{
         width: 20%;
@@ -84,15 +104,15 @@ export const ContainerChartHome = styled.div`
                 flex-direction:column;
                 font-size: 0.675rem;
                 width: 50%;
-                
+
                 span{
                     margin: 0.3rem 0rem;
                     height: 0.2rem;
                 }
             }
         }
-        
-        
+
+
     }
 
     .container_grafics_2{
@@ -102,7 +122,7 @@ export const ContainerChartHome = styled.div`
         height: 10rem;
         flex-direction: column;
         gap: 1rem;
-        
+
         .grafics_2_1{
             width: 100%;
             height: 50%;
@@ -140,7 +160,7 @@ export const ContainerChartHome = styled.div`
                 font-size: 0.75rem;
                 padding: 0.1rem 0.4rem;
             }
-        } 
+        }
     }
 
     .container-grafics_3{
@@ -165,7 +185,7 @@ export const ContainerChartHome = styled.div`
                 align-items: center;
                 justify-content: space-around;
                 text-align: center;
-                
+
                 h3{
                     font-size: 0.8rem;
                     color:var(--azul-secundary);
@@ -185,7 +205,7 @@ export const ContainerChartHome = styled.div`
         padding: 0rem 0rem 0rem 0.75rem;
         display: flex;
         height: 10rem;
-        flex-direction: column;       
+        flex-direction: column;
 
         .grafics_4{
             width: 100%;
@@ -196,5 +216,36 @@ export const ContainerChartHome = styled.div`
             background-color: var(--white);
             border-radius: 8px;
         }
+    }
+
+    @media (max-width:768px){
+        flex-direction: column;
+        width: 100%;
+        height: 50rem;
+
+        .container_chart_1{
+            width: 100%;
+            height: 10rem;
+            margin-bottom: 1rem;
+        }
+
+        .container_grafics_2{
+            width: 100%;
+            height: 12rem;
+            padding: 0rem;
+            margin-bottom: 1rem;
+        }
+
+        .container-grafics_3{
+            width: 100%;
+            padding: 0rem;
+            margin-bottom: 1rem;
+        }
+
+        .container-grafics_4{
+            width: 100%;
+            padding: 0rem;
+        }
+
     }
 `

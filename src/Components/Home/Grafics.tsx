@@ -45,8 +45,8 @@ export function Grafics(){
                         
                         <Pie
                             data={data}
-                            innerRadius={40}
-                            outerRadius={60}
+                            innerRadius={35}
+                            outerRadius={55}
                             fill="#8884d8"
                             paddingAngle={0}
                             dataKey="value"
