@@ -127,14 +127,6 @@ export const ContainerSidebar = styled.div`
 
     .menu_hamburguer_mobile{
 
-        
-
-        button{
-            background-color: transparent;
-            border: none;
-            margin-top: 1.4rem;
-        }
-
         .container_sidebar_mobile{
             position: absolute;
             top: 0;
@@ -150,16 +142,10 @@ export const ContainerSidebar = styled.div`
             }
         }
 
-
-
-        @media (min-width:768px){
-            display: none;
-        }
-
-
     }
 
     .btn_abrirfechar_menumob{
+        
         background-color: transparent;
             border: none;
             margin-top: 1.6rem;
@@ -221,6 +207,10 @@ export const ContainerSidebar = styled.div`
         input:checked ~ label .hamburguer:after {
             transform: rotate(90deg);
             bottom: 0;
+        }
+
+        @media (min-width:768px){
+            display: none;
         }
     }
 
