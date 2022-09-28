@@ -73,12 +73,21 @@ export const ContainerEditUser = styled.div`
                 }
             }
         }
+
+        @media (max-width:768px){
+            flex-direction:column;
+            align-items: center;
+            height: 100vh;
+
+            .container_img_perfil{
+                width: 80%;
+            }
+        }
     }
 
     .container_dados_user{
         padding: 1rem 0rem 0rem 0rem;
         width: 50%;
-
         
         p{
             font-size: 0.875rem;
@@ -141,6 +150,20 @@ export const ContainerEditUser = styled.div`
                 background-color: var(--azul-secundary);
             }
 
+        }
+
+        @media (max-width: 768px) {
+            width: 100%;
+            margin: 2rem 0rem;
+
+            .container_apelidos_edituser{
+                flex-direction: column;
+            }
+
+            .container_dados_user{
+                width: 100%;
+            }
+            
         }
     }
 

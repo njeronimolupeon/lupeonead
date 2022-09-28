@@ -11,7 +11,7 @@ export function Home(){
                     <Header title = {"Home"} />
                 </header>
                 <main>
-                    <input type="text" placeholder="Sua pesquisa aqui"/>
+                    <input type="text" placeholder="Pesquisar..."/>
                     <button type="button"><img src={lupa} alt="Pesquisar" /></button>
                 </main>
             </ContainerHome>

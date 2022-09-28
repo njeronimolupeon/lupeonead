@@ -35,13 +35,18 @@ export function Sidebar(){
         setOpenModalUser(true);
     }
 
+    function onHandleMenuMobile(){
+        setMenuOpenMobile(!menuOpenMobile);
+        setMenuOpen(false);
+        setOpenModalUser(false);
+    }
+
     if(Auth.user)
     {
         return(
             <ContainerSidebar>
-                <div className="menu_hamburguer_mobile">
-                    <button>
-                        <input id="menu-hamburguer" type="checkbox" onClick={() => setMenuOpenMobile(!menuOpenMobile)}/>
+                    <button className='btn_abrirfechar_menumob'>
+                        <input id="menu-hamburguer" type="checkbox" onClick={onHandleMenuMobile}/>
 
                         <label htmlFor="menu-hamburguer">
                             <div className="menu">
@@ -49,6 +54,8 @@ export function Sidebar(){
                             </div>
                         </label>
                     </button>
+                <div className="menu_hamburguer_mobile">
+                    
 
                     <div className='container_sidebar_mobile' style={menuOpenMobile == true? {} : {display: 'none'}}>
                         <header>

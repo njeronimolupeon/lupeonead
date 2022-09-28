@@ -65,6 +65,7 @@ export const GlobalStyles = createGlobalStyle`
         align-items: center;
         justify-content: center;
         box-shadow: var(--boxshadow);
+        z-index: 51000;
     }
 
     .react-modal-content{
@@ -75,6 +76,7 @@ export const GlobalStyles = createGlobalStyle`
         padding: 1rem;
         position: relative;
         font-size: 0.875rem;
+        z-index: 51000;
     }
 
     .link_to_usuario{

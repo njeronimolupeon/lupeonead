@@ -57,6 +57,10 @@ export const ContainerHome = styled.div`
     }
 
     @media(max-width:768px){
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+
         main{
             width: 45%;
             margin:1rem 1rem 0rem 0.4rem;
@@ -69,7 +73,8 @@ export const ContainerHome = styled.div`
         }
 
         header{
-            width: 50%;
+            
+            width: 35%;
         }
     }
 

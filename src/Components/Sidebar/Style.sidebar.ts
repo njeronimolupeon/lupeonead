@@ -127,21 +127,62 @@ export const ContainerSidebar = styled.div`
 
     .menu_hamburguer_mobile{
 
-        .menu {
-            position: fixed;
-            left: 0.3rem;
+        
+
+        button{
+            background-color: transparent;
+            border: none;
+            margin-top: 1.4rem;
+        }
+
+        .container_sidebar_mobile{
+            position: absolute;
+            top: 0;
+            z-index: 10000;
+
+            header{
+                margin-top: 2.5rem;
+                margin-bottom: 0rem;
+            }
+            main{
+                margin-top:4rem;
+                margin-bottom: 0px;
+            }
+        }
+
+
+
+        @media (min-width:768px){
+            display: none;
+        }
+
+
+    }
+
+    .btn_abrirfechar_menumob{
+        background-color: transparent;
+            border: none;
+            margin-top: 1.6rem;
+            position: absolute;
+            box-shadow: var(--box-shadow);
+
+            .menu {
+            position:relative;
+            left: 0.2rem;
             z-index: 50000;
+            box-shadow: var(--box-shadow);
         }
 
         .hamburguer {
             position: relative;
             display: block;
             background: #0f418a;
-            width: 30px;
+            width: 25px;
             height: 2px;
             top: 0.2rem;
-            left: 0.3rem;
+            left: 0.8rem;
             transition: 0.5s ease-in-out;
+            box-shadow: var(--box-shadow);
         }
 
         .hamburguer:before,
@@ -153,6 +194,7 @@ export const ContainerSidebar = styled.div`
         height: 100%;
         position: absolute;
         transition: 0.5s ease-in-out;
+        box-shadow: var(--box-shadow);
         }
 
         .hamburguer:before {
@@ -180,17 +222,6 @@ export const ContainerSidebar = styled.div`
             transform: rotate(90deg);
             bottom: 0;
         }
-
-        button{
-            background-color: transparent;
-            border: none;
-        }
-
-        @media (min-width:768px){
-            display: none;
-        }
-
-
     }
 
     /* Modal user */
@@ -201,6 +232,7 @@ export const ContainerSidebar = styled.div`
 
 export const ContainerSidebarMenu = styled.div`
     transition: 0.2s all;
+    z-index: 10000;
 
     .sidebar-menu{
         

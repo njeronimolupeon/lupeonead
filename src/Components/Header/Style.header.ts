@@ -42,9 +42,10 @@ export const ContainerHeader = styled.div`
     @media (max-width:768px){
         .img_fundo_header{
             img{
-                width: 4.2rem;
+                display: none;
             }
         }
+        
     }
 
 `

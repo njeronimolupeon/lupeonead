@@ -63,11 +63,11 @@ export function EditUser(){
                     <div className="container_apelidos_edituser">
                         <div className="container_dados_user">
                             <p>Edite seu Apelido:</p>
-                            <input type="text" placeholder="Digite o nome que gostaria de ser chamado no Lupeon EAD."/>
+                            <input type="text" placeholder="Digite um apelido."/>
                         </div>
                         <div className="container_dados_user">
                             <p>Edite sua Sigla:</p>
-                            <input type="text" placeholder="Digite sua sigla como as iniciais do seu nome."/>
+                            <input type="text" placeholder="Digite suas iniciais."/>
                         </div>
                     </div>
                     
