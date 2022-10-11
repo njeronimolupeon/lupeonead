@@ -166,9 +166,9 @@ export function Sidebar(){
                                 style={{textDecoration: 'none', width: '100%'}}>
                                     <p>Usuário</p>
                                 </Link>
-                                <Link to={'/aula1'}
+                                <Link to={'/aulas'}
                                 style={{textDecoration: 'none', width: '100%'}}>
-                                    <p>Subtitulo</p>
+                                    <p>Aulas</p>
                                 </Link>
                             </div>
 

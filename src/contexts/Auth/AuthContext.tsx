@@ -5,6 +5,7 @@ export  type AuthContextType = {
     user: User | null;
     signin: (email: string, password: string) => Promise<boolean>;
     signout: () => void;
+    setUserLocalStorage: (userLocal: User) => void;
 }
 
 export const AuthContext = createContext<AuthContextType>(null!);

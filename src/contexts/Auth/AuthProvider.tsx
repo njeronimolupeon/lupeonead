@@ -15,12 +15,14 @@ export const AuthProvider = ({children}: {children: JSX.Element}) =>{
             if(token){
                 const data = await api.validateToken(token);
                 
-                if(data.user){
-                    setUser(data.user);
+                if(data){
+                    setUser(data);
                 }
             }
         }
+
         validateToken();
+
     }, []);
 
     async function signin (email: string, password: string){
@@ -28,6 +30,7 @@ export const AuthProvider = ({children}: {children: JSX.Element}) =>{
 
         if(data.user && data.token){
             setUser(data.user);
+            setUserLocalStorage(data.user);
             setToken(data.token);
             return true;
         }
@@ -45,8 +48,12 @@ export const AuthProvider = ({children}: {children: JSX.Element}) =>{
         localStorage.setItem('authToken', token);
     }
 
+    function setUserLocalStorage(userLocal: User){
+        localStorage.setItem('usuario', JSON.stringify(userLocal));
+    }
+
     return(
-        <AuthContext.Provider value={{ user, signin, signout}}>
+        <AuthContext.Provider value={{ user, signin, signout, setUserLocalStorage}}>
             {children}
         </AuthContext.Provider>
     )

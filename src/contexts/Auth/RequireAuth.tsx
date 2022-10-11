@@ -7,6 +7,8 @@ export const RequireAuth = ({ children }: {children: JSX.Element}) =>{
 
     const auth = useContext(AuthContext);
 
+    console.log(auth.user);
+
     if(!auth.user){
         toast.error('Você precisa estar logado para ter acesso a esta página.');
         return <Login />

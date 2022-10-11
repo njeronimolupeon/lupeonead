@@ -127,6 +127,8 @@ export const ContainerEditUser = styled.div`
             gap: 0.5rem;
         }
 
+        
+
         button{
             margin: 1.5rem 0rem;
             background-color: var(--azul-secundary);
@@ -152,6 +154,8 @@ export const ContainerEditUser = styled.div`
 
         }
 
+        
+
         @media (max-width: 768px) {
             width: 100%;
             margin: 2rem 0rem;
@@ -164,6 +168,38 @@ export const ContainerEditUser = styled.div`
                 width: 100%;
             }
             
+        }
+
+        
+    }
+
+    .btn_submit_user{
+        width:100%;
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem 2.5rem;
+
+        button{
+            background-color: var(--azul-secundary);
+            color: var(--white);
+            padding: 0.5rem;
+            width: 15%;
+
+            background-color: var(--azul-secundary);
+            border: none;
+            color:var(--white);
+            cursor: pointer;
+            border-radius: 0.25rem;
+            font-size: 0.775rem;
+            transition: 0.2s all;
+
+            &:hover{
+                background-color: var(--hover-azul);
+            }
+
+            &:focus{
+                background-color: var(--azul-secundary);
+            }
         }
     }
 
