@@ -9,6 +9,9 @@ import { GlobalStyles } from "./Styles/Global";
 import 'react-toastify/dist/ReactToastify.css';
 import { EditUser } from "./Components/EditUser/EditUser";
 import { ReprodutorAulas } from "./Components/ReprodutorAulas/ReprodutorAulas";
+import { CadastroAulas } from "./Pages/CadastroAulas/CadastroAulas";
+import { HomeCursos } from "./Pages/HomeCursos/HomeCursos";
+import { CadastroCurso } from "./Pages/CadastroCurso/CadastroCurso";
 
 export function App() {
 
@@ -26,6 +29,9 @@ export function App() {
               <Route path="/home" element={<RequireAuth><Home /></RequireAuth>} />
               <Route path="/usuario" element={<RequireAuth><EditUser /></RequireAuth>} />
               <Route path="/aulas" element={<RequireAuth><ReprodutorAulas /></RequireAuth>} />
+              <Route path="/CadastroAulas" element={<RequireAuth><CadastroAulas /></RequireAuth>} />
+              <Route path="/CadastroCurso" element={<RequireAuth><CadastroCurso /></RequireAuth>} />
+              <Route path="/HomeCursos" element={<RequireAuth><HomeCursos /></RequireAuth>} />
             </Routes>
           </div>
           <GlobalStyles />
