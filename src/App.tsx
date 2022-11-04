@@ -11,7 +11,8 @@ import { EditUser } from "./Components/EditUser/EditUser";
 import { ReprodutorAulas } from "./Components/ReprodutorAulas/ReprodutorAulas";
 import { CadastroAulas } from "./Pages/CadastroAulas/CadastroAulas";
 import { HomeCursos } from "./Pages/HomeCursos/HomeCursos";
-import { CadastroCurso } from "./Pages/CadastroCurso/CadastroCurso";
+import { CadastroCurso } from "./Pages/Curso/CadastroCurso/CadastroCurso";
+import { CursosLista } from "./Pages/Curso/CursoLista/CursosLista";
 
 export function App() {
 
@@ -32,6 +33,7 @@ export function App() {
               <Route path="/CadastroAulas" element={<RequireAuth><CadastroAulas /></RequireAuth>} />
               <Route path="/CadastroCurso" element={<RequireAuth><CadastroCurso /></RequireAuth>} />
               <Route path="/HomeCursos" element={<RequireAuth><HomeCursos /></RequireAuth>} />
+              <Route path="/Cursos" element={<RequireAuth><CursosLista /></RequireAuth>} />
             </Routes>
           </div>
           <GlobalStyles />

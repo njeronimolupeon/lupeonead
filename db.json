@@ -1,0 +1,52 @@
+{
+  "cursos": [
+    {
+      "Titulo": "Titulo teste",
+      "Descricao": "Descrição teste",
+      "Categoria": "categoria",
+      "id": 1
+    },
+    {
+      "Titulo": "Curso LCS",
+      "Descricao": "Descricao LCS",
+      "Categoria": "LCS",
+      "Id": 0.33507453767473794
+    },
+    {
+      "Titulo": "Curso teste 03/11",
+      "Descricao": "Testezao",
+      "Categoria": "LCS",
+      "Id": 0.8902240405723165,
+      "id": 2
+    }
+  ],
+  "aulas": [
+    {
+      "Titulo": "",
+      "Descricao": "",
+      "UrlVideo": "",
+      "Categoria": "",
+      "Instrutor": "",
+      "Curso": "",
+      "id": 1
+    },
+    {
+      "Titulo": "Titulo teste",
+      "Descricao": "Desc teste",
+      "UrlVideo": "cw7xJvL08WI",
+      "Categoria": "2",
+      "Instrutor": "Nicolas",
+      "Curso": "0.33507453767473794",
+      "id": 0.40922250917504965
+    }
+  ],
+  "quiz": [
+    {
+      "Titulo": "",
+      "Descricao": "",
+      "id": "",
+      "NotaMinima": 5,
+      "Perguntas": []
+    }
+  ]
+}

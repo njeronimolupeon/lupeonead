@@ -24,6 +24,8 @@ export const GlobalStyles = createGlobalStyle`
         /* Tons de cinza */
 
         --gray-1:#e1e1e6;
+        --gray-text:#A6A6A6;
+        --gray-border:#f2f2f3;
         --gray-5:#e9eaed;
         --gray-3:rgba(130, 130, 130, 0.5);
         --gray-grafic:#C4C4C4;

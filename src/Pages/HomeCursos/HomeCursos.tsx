@@ -22,7 +22,7 @@ export function HomeCursos(){
                     </Link>
                 </div>
                 <div className="container_box">
-                    <Link to={'/HomeCursos'} style={{width:'33%', textDecoration:'none'}}>
+                    <Link to={'/Cursos'} style={{width:'33%', textDecoration:'none'}}>
                         <div className="box-primary">
                             Cursos
                         </div>
