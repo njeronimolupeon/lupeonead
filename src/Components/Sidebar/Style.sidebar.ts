@@ -7,7 +7,7 @@ export const ContainerSidebar = styled.div`
     .container_sidebar,
     .container_sidebar_mobile{
         height: 100vh;
-        width: 3.5rem;
+        width: 6.1rem;
         background-color: var(--gray-2);
         border-top-right-radius: 6px;
         border-bottom-right-radius: 6px;
@@ -59,11 +59,13 @@ export const ContainerSidebar = styled.div`
             
 
             img{
-                width: 1.3rem;
+                width: 1.8rem;
             }
 
             strong{
-                font-size: 0.5rem;
+                margin-top: 0.32rem;
+                font-size: 0.7rem;
+                text-transform: uppercase;
                 color: var(--azul-primary);
             }
 
@@ -84,8 +86,9 @@ export const ContainerSidebar = styled.div`
         justify-content: center;
         align-items: flex-end;
         height: 50%;
+        bottom: 2rem;
         width: 3rem;
-        position: relative;
+        position: absolute;
 
         div{
             display: flex;
@@ -225,12 +228,11 @@ export const ContainerSidebarMenu = styled.div`
     z-index: 10000;
 
     .sidebar-menu{
-        
-        width: 7rem;
+        width: 8rem;
         height: 97vh;
         background-color: var(--azul-primary);
         position: absolute;
-        left: 3.5rem;
+        left: 5.5rem;
         top: 1rem;
         color: var(--white);
         box-shadow: var(--boxshadow);

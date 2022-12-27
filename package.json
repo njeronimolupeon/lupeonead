@@ -16,9 +16,11 @@
     "@types/react-toastify": "^4.1.0",
     "@types/recharts": "^1.8.23",
     "@types/styled-components": "^5.1.26",
+    "@types/swiper": "^6.0.0",
     "@vime/core": "^5.3.3",
     "@vime/react": "^5.3.3",
     "axios": "^0.27.2",
+    "framer-motion": "^8.0.2",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -26,7 +28,8 @@
     "react-router-dom": "^6.4.0",
     "react-toastify": "^9.0.8",
     "recharts": "^2.1.14",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "swiper": "^8.4.5"
   },
   "devDependencies": {
     "@types/node": "^18.7.18",

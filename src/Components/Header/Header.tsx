@@ -1,5 +1,5 @@
 /*Import de imagens */
-import logoLupeon from '../../assets/img_lupeon/logo_lupeon_preloader.png';
+import logoLupeon from '../../assets/img_lupeon/logo-svg.svg';
 
 import { ContainerHeader } from "./Style.header";
 

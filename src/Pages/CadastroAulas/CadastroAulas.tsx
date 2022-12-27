@@ -55,14 +55,17 @@ export function CadastroAulas(){
             </header>
             <form action="">
                 <div className="container_content_1">
-
                     <div className="div_container_inputs">
                         <label htmlFor="">Titulo:</label>
                         <input 
                         type="text"
                         placeholder="Digite o titulo"
+<<<<<<< HEAD
+                         />
+=======
                         value={titulo}
                         onChange={(e) => {setTitulo(e.target.value)}} />
+>>>>>>> c25327f9024a2ffa40ef97b07103b4a307cffd58
                     </div>
                     
                     <div className="div_container_inputs">

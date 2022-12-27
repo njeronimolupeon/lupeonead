@@ -3,8 +3,10 @@ import logoLupeon from '../../assets/img_lupeon/logo_mobile.png';
 import Close from '../../assets/img_icones/close.png';
 import Sino from '../../assets/img_icones/Sino.png';
 import Monitor from '../../assets/img_icones/monitor.png';
+import Home from '../../assets/img_icones/home.png';
+import Curso from '../../assets/img_icones/curso.png';
 import Seta from '../../assets/img_icones/seta_esquerda.png';
-
+import Diploma from '../../assets/img_icones/diploma.png';
 
 import { ContainerSidebar, ContainerSidebarMenu } from "./Style.sidebar";
 import { useContext, useState } from 'react';
@@ -63,21 +65,22 @@ export function Sidebar(){
                         </header>
                         <main>
                             <div onClick={() => setMenuOpen(true)}>
-                                <img src={Monitor} alt="" />
-                                <strong>Monitor</strong>
+                                <img src={Home} alt="" />
+                                <strong>Home</strong>
                             </div>
+                            <div onClick={() => setMenuOpen(true)}>
+                                <img src={Curso} alt="" />
+                                <strong>Cursos</strong>
+                            </div>
+                            <div onClick={() => setMenuOpen(true)}>
+                                <img src={Diploma} alt="" />
+                                <strong>Certificados</strong>
+                            </div>
+                            {/*
                             <div onClick={() => setMenuOpen(true)}>
                                 <img src={Monitor} alt="" />
                                 <strong>Monitor</strong>
-                            </div>
-                            <div onClick={() => setMenuOpen(true)}>
-                                <img src={Monitor} alt="" />
-                                <strong>Monitor</strong>
-                            </div>
-                            <div onClick={() => setMenuOpen(true)}>
-                                <img src={Monitor} alt="" />
-                                <strong>Monitor</strong>
-                            </div>
+                            </div> */}
                         </main>
                         <footer>
                             <div>
@@ -97,22 +100,24 @@ export function Sidebar(){
                         <img src={logoLupeon}/>
                     </header>
                     <main>
-                        <div onClick={() => setMenuOpen(true)}>
-                            <img src={Monitor} alt="" />
-                            <strong>Monitor</strong>
-                        </div>
-                        <div onClick={() => setMenuOpen(true)}>
-                            <img src={Monitor} alt="" />
-                            <strong>Monitor</strong>
-                        </div>
-                        <div onClick={() => setMenuOpen(true)}>
-                            <img src={Monitor} alt="" />
-                            <strong>Monitor</strong>
-                        </div>
-                        <div onClick={() => setMenuOpen(true)}>
-                            <img src={Monitor} alt="" />
-                            <strong>Monitor</strong>
-                        </div>
+                        <Link to={'/home'} style={{textDecoration:'none'}}>
+                            <div>
+                                <img src={Home} alt="" />
+                                <strong>Home</strong>
+                            </div>
+                        </Link>
+                        <Link to={'/Jornadas'} style={{textDecoration:'none'}}>
+                            <div>
+                                <img src={Curso} alt="" />
+                                <strong>Jornadas</strong>
+                            </div>
+                        </Link>
+                        <Link to={'/Certificados'} style={{textDecoration:'none'}}>
+                            <div onClick={() => setMenuOpen(true)}>
+                                <img src={Diploma} alt="" />
+                                <strong>Certificados</strong>
+                            </div>
+                        </Link>
                     </main>
                     <footer>
                         <div>

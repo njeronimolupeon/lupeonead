@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
         --azul-complementary:#5CC4FF;
         --azul-complementary_:rgba(19, 108, 251, 0.2);
         --azul-info:#0D45F6;
+        --azul-hover:#085ad1;
         --hover-azul:#509BF2;
 
         /* Identidade visual */
@@ -29,6 +30,7 @@ export const GlobalStyles = createGlobalStyle`
         --gray-5:#e9eaed;
         --gray-3:rgba(130, 130, 130, 0.5);
         --gray-grafic:#C4C4C4;
+        --gray-text: #6b7074;
         --gray-info: #515251;
         --gray-2: #F4F4F4;
         --gray-4: #DCDCE0;

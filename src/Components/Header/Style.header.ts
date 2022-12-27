@@ -25,12 +25,12 @@ export const ContainerHeader = styled.div`
         background-size: cover;
         height: 100%;
         width: 100%;
-        -webkit-mask-image: linear-gradient(to right, transparent 10%, #10448f 60%);
+        -webkit-mask-image: linear-gradient(to right, transparent 5%, #10448f 40%);
 
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        padding-right: 1rem;
+        padding-right: 5rem;
 
         border-radius: 6px;
 
@@ -46,6 +46,10 @@ export const ContainerHeader = styled.div`
             }
         }
         
+    }
+
+    @media(min-width:1400px){
+        height: 3rem;
     }
 
 `
