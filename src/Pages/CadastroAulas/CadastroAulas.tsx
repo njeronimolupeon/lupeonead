@@ -60,12 +60,9 @@ export function CadastroAulas(){
                         <input 
                         type="text"
                         placeholder="Digite o titulo"
-<<<<<<< HEAD
-                         />
-=======
                         value={titulo}
-                        onChange={(e) => {setTitulo(e.target.value)}} />
->>>>>>> c25327f9024a2ffa40ef97b07103b4a307cffd58
+                        onChange={(e) => {setTitulo(e.target.value)}}
+                        />
                     </div>
                     
                     <div className="div_container_inputs">
