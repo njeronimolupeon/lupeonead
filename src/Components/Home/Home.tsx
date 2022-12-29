@@ -5,7 +5,7 @@ import { Grafics } from "./Grafics";
 
 export function Home(){
     return (
-        <div style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
+        <div style={{display: 'flex', flexDirection: 'column', width: '100%', margin: '1rem'}}>
             <ContainerHome>
                 <header>
                     <Header title = {"Home"} />

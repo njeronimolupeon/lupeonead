@@ -4,20 +4,21 @@ import styled from 'styled-components';
 export const ContainerHome = styled.div`
     display: flex;
     width: 100%;
+    /* margin: 1rem; */
 
     header{
         width: 60%;
-        margin-left: 1rem;
-        margin-top: 1rem
+        /* margin-left: 1rem;
+        margin-top: 1rem */
     }
 
     main{
         width: 40%;
         border-radius: 8px;
-        margin: 1rem 1rem 0rem 1rem;
+        margin: 0rem 0rem 1rem 1rem;
         padding: 0rem 1rem;
         background: var(--white);
-        height: 2rem;
+        height: 3rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -28,7 +29,7 @@ export const ContainerHome = styled.div`
             font-size: 0.775rem;
             font-weight: 600;
             border: none;
-
+            width: 100%;
             &:focus{
                 outline: none;
             }
@@ -85,7 +86,7 @@ export const ContainerChartHome = styled.div`
     width: 100%;
     height: 11rem;
     display: flex;
-    padding: 1rem;
+    /* padding: 1rem; */
 
 
     .container_chart_1{

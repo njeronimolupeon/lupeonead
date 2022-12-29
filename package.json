@@ -20,6 +20,7 @@
     "@vime/core": "^5.3.3",
     "@vime/react": "^5.3.3",
     "axios": "^0.27.2",
+    "date-fns": "^2.29.3",
     "framer-motion": "^8.0.2",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",

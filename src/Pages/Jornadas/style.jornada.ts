@@ -3,17 +3,30 @@ import styled from 'styled-components'
 export const ContainerJornada = styled.div`
 
     width: 100%;    
-    /* max-width: 100%; */
-    margin: 1rem;
+    /* margin: 1rem; */
     background-color: white;
     border-radius: 6px;
-    padding: 1rem;
+    padding: 0rem 1rem;
     
 
     .jornada_row{
         padding: 1rem 0.5rem;
         max-width: 85vw;
         position: relative;
+        transition: 0.2s all ease-in-out;
+    }
+
+
+    @media(max-width: 1024px){
+        .jornada_row{
+            max-width: 78vw;
+        }
+    }
+
+    @media(min-width: 1600px){
+        .jornada_row{
+            max-width: 90vw;
+        }
     }
 
     .jornada_cards{
@@ -21,6 +34,7 @@ export const ContainerJornada = styled.div`
         overflow-x: auto;
         position: relative;
         padding-bottom: 1rem;
+        transition: 0.2s all ease-in-out;
 
         ::-webkit-scrollbar-track {
             background: rgb(240,240,240);        /* color of the tracking area */
@@ -41,7 +55,7 @@ export const ContainerJornada = styled.div`
     }
 
     .jornada_card{
-        min-width: 300px;
+        min-width: 14%;
         display: flex;
         margin: 0rem 1rem;
         flex-direction: column;
@@ -50,19 +64,19 @@ export const ContainerJornada = styled.div`
 
         .jornada_card_header{
             width: 100%;
-            padding:5rem 1rem;
+            padding:4rem 1rem;
             background-color: antiquewhite;
         }
 
         .jornada_card_titulo{
             h2{
                 padding-top: 0.8rem;
-                font-size: 1rem;
+                font-size: 0.87rem;
             }
 
             p{
                 color: var(--gray-text);
-                font-size: 0.8rem;
+                font-size: 0.7rem;
             }
         }
 
@@ -76,7 +90,14 @@ export const ContainerJornada = styled.div`
         &:last-child:hover{
             .modal_popup{
                 display: flex;
-                right: 20rem;
+                right: 16.5rem;
+            }
+        }
+
+        &:first-child:hover{
+            .modal_popup{
+                display: flex;
+                right: -17rem;
             }
         }
         
@@ -87,9 +108,9 @@ export const ContainerJornada = styled.div`
     .modal_popup{
         background-color: transparent;
         position: absolute;
-        right: -20rem;
+        right: -17rem;
         display: none;
-        width: 20rem;
+        width: 17rem;
         z-index: 10000;
         transition: 0.2s all;
 
@@ -108,15 +129,15 @@ export const ContainerJornada = styled.div`
             .modal_popup_titulo{
                 width: 100%;
                 h2{
-                    font-size: 1rem;
+                    font-size: 0.875rem;
                 }
                 p{
                     margin-top: 0.5rem;
-                    font-size: 0.7rem;
+                    font-size: 0.65rem;
                     color: var(--gray-text);
                 }
                 span{
-                    font-size: 0.7rem;
+                    font-size: 0.65rem;
                     color: var(--gray-text);
                 }
             }
@@ -125,9 +146,9 @@ export const ContainerJornada = styled.div`
             .modal_popup_descricao{
                 p{
                     margin-top: 0.65rem;
-                    font-size: 0.775rem;
+                    font-size: 0.65rem;
                     text-align: justify;
-                    line-height: 1.1rem;
+                    line-height: 0.9rem;
                 }
             }
         }
@@ -137,12 +158,13 @@ export const ContainerJornada = styled.div`
         } */
 
         button{
-            margin-top: 1rem;
+            margin-top: 0.8rem;
             border: none;
             color: var(--white);
             padding: 0.4rem 0rem;
             background-color: var(--azul-secundary);
             transition: 0.2s all ease-in-out;
+            font-size: 0.775rem;
 
             &:hover{
                 cursor: pointer;
@@ -153,19 +175,27 @@ export const ContainerJornada = styled.div`
 
     .btn-right{
         position: absolute;
-        right: -2rem;
+        right: -1rem;
         top: 42.5%;
         transform: rotate(180deg);
 
         border: none;
         border-radius:50%;
         background-color: var(--azul-secundary);
-        padding: 0rem 0.15rem;
+        padding: 0.1rem 0.15rem;
         transition: 0.2s all ease-in-out;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover{
             background-color: var(--azul-hover);
             cursor: pointer;
+        }
+
+        img{
+            width: 2rem;
         }
     }
 
@@ -177,12 +207,19 @@ export const ContainerJornada = styled.div`
         border: none;
         border-radius:50%;
         background-color: var(--azul-secundary);
-        padding: 0rem 0.15rem;
+        padding: 0.1rem 0.15rem;
         transition: 0.2s all ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover{
             background-color: var(--azul-hover);
             cursor: pointer;
+        }
+
+        img{
+            width: 2rem;
         }
     }
     
