@@ -58,6 +58,14 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1rem;
   }
 
+  .app_container{
+    display: grid;
+    /* width: 100%; */
+    grid-template-columns: 6rem auto;
+    grid-template-rows: auto;
+    grid-column-gap: 1rem;
+  }
+
 
 
   /* Style modal User */

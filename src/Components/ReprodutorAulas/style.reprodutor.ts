@@ -4,8 +4,6 @@ export const ContainerReprodutor = styled.div`
     width: 100%;
     display: flex;
     /* flex-direction: column; */
-    margin: 1rem;
-    padding: 1rem;
     box-shadow: var(--box-shadow);
     border-radius: 8px;
     background-color: var(--white);

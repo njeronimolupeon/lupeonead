@@ -3,11 +3,12 @@ import styled from 'styled-components';
 export const ContainerSidebar = styled.div`
     display: flex;
     position: relative;
+    width: 100%;
 
     .container_sidebar,
     .container_sidebar_mobile{
         height: 100vh;
-        width: 6.1rem;
+        width: 100%;
         background-color: var(--gray-2);
         border-top-right-radius: 6px;
         border-bottom-right-radius: 6px;
@@ -64,7 +65,7 @@ export const ContainerSidebar = styled.div`
 
             strong{
                 margin-top: 0.32rem;
-                font-size: 0.7rem;
+                font-size: 0.6rem;
                 text-transform: uppercase;
                 color: var(--azul-primary);
             }
@@ -232,7 +233,7 @@ export const ContainerSidebarMenu = styled.div`
         height: 97vh;
         background-color: var(--azul-primary);
         position: absolute;
-        left: 5.5rem;
+        left: 6.1rem;
         top: 1rem;
         color: var(--white);
         box-shadow: var(--boxshadow);

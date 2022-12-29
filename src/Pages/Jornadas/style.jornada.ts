@@ -10,10 +10,15 @@ export const ContainerJornada = styled.div`
     
 
     .jornada_row{
-        padding: 1rem 0.5rem;
+        padding: 1rem 0rem 0rem 0rem;
         max-width: 85vw;
         position: relative;
         transition: 0.2s all ease-in-out;
+
+        h3{
+            padding-left: 1rem;
+            font-size:1rem;
+        }
     }
 
 
@@ -175,7 +180,7 @@ export const ContainerJornada = styled.div`
 
     .btn-right{
         position: absolute;
-        right: -1rem;
+        right: 0rem;
         top: 42.5%;
         transform: rotate(180deg);
 

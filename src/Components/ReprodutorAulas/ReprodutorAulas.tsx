@@ -6,6 +6,7 @@ import { SidebarReprodutor } from "./SidebarReprodutor";
 
 export function ReprodutorAulas(){
     return(
+        <div style={{padding:'1rem'}}>
         <ContainerReprodutor>
             <div style={{width:'60%'}}>
                 <Player style={{width:'60%'}}>
@@ -41,6 +42,6 @@ export function ReprodutorAulas(){
 
             <SidebarReprodutor />            
         </ContainerReprodutor>
-
+        </div>
     )
 }

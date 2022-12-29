@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const ContainerCadastroAulas = styled.div`
 
     background-color: var(--white);
-    margin: 1rem;
     width: 100%;
     border-radius: 8px;
 

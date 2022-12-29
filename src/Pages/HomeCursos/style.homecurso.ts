@@ -2,9 +2,7 @@ import styled from  'styled-components';
 
 export const ContainerHomeCursos = styled.div`
     width: 100%;
-    padding: 1rem;
-    margin: 1rem;
-
+    padding:1rem;
     header{
         width: 60%;
         box-shadow: var(--boxshadow);

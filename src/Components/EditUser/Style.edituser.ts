@@ -6,7 +6,6 @@ export const ContainerEditUser = styled.div`
     background-color: var(--white);
     border-radius: 0.25rem;
     box-shadow: var(--box-shadow);
-    margin:1rem;
     display: flex;
     flex-direction: column;
 

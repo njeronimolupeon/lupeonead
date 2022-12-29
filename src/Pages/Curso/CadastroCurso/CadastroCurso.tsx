@@ -40,6 +40,7 @@ export function CadastroCurso(){
     }
 
     return(
+        <div style={{padding:'1rem'}}>
         <ContainerCadastroAulas>
             <header>
                 <h2>Cadastro de curso</h2>
@@ -86,5 +87,6 @@ export function CadastroCurso(){
                 <button type="submit">Enviar</button>
             </form>
         </ContainerCadastroAulas>
+        </div>
     )
 }

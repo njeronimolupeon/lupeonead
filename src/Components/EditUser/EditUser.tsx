@@ -65,6 +65,7 @@ export function EditUser(){
     }
 
     return(
+        <div style={{padding:'1rem'}}>
         <ContainerEditUser>
             <h2>Edite seu perfil</h2>
             <div className="container_header_editUser">
@@ -136,5 +137,6 @@ export function EditUser(){
             </div>
             
         </ContainerEditUser>
+        </div>
     )
 }

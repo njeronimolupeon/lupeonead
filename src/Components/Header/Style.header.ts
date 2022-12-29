@@ -1,6 +1,6 @@
 
 import styled from 'styled-components';
-import imgFundoHeader from '../../assets/img_lupeon/fundo_header_ead.png';
+import imgFundoHeader from '../../assets/img_icones/negocios.png';
 
 export const ContainerHeader = styled.div`
 
@@ -25,8 +25,8 @@ export const ContainerHeader = styled.div`
         background-size: cover;
         height: 100%;
         width: 100%;
-        -webkit-mask-image: linear-gradient(to right, transparent 5%, #10448f 40%);
-
+        -webkit-mask-image: linear-gradient(to right, transparent 10%, #1855ae 90% , #1855ae 100%);
+        background-color: #2358a4;
         display: flex;
         align-items: center;
         justify-content: flex-end;

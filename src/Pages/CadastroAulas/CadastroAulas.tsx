@@ -49,6 +49,7 @@ export function CadastroAulas(){
     }
 
     return(
+        <div style={{padding:'1rem'}}>
         <ContainerCadastroAulas>
             <header>
                 <h2>Cadastro de aulas</h2>
@@ -124,5 +125,6 @@ export function CadastroAulas(){
                 <button type="button" onClick={submitCurso}>Enviar</button>
             </form>
         </ContainerCadastroAulas>
+        </div>
     )
 }

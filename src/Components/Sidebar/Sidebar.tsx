@@ -43,9 +43,26 @@ export function Sidebar(){
         setOpenModalUser(false);
     }
 
+    function handleOpenModalUser(){
+        onRequestOpen();
+        setMenuOpen(false);
+    }
+
+    function handleOpenMenuSidebar(numero:number){
+        if(numero == 0){
+            onRequestClose();
+            setMenuOpen(true);
+        }else if (numero == 1){
+            onRequestClose();
+            setMenuOpen(false);
+        }
+        
+    }
+
     if(Auth.user)
     {
         return(
+            <div style={{position:'fixed', width:'6.1rem'}}>
             <ContainerSidebar>
                     <button className='btn_abrirfechar_menumob'>
                         <input id="menu-hamburguer" type="checkbox" onClick={onHandleMenuMobile}/>
@@ -64,30 +81,29 @@ export function Sidebar(){
                             <img src={logoLupeon}/>
                         </header>
                         <main>
-                            <div onClick={() => setMenuOpen(true)}>
+                        <Link to={'/home'} style={{textDecoration:'none'}}>
+                            <div onClick={() => handleOpenMenuSidebar(1)}>
                                 <img src={Home} alt="" />
                                 <strong>Home</strong>
                             </div>
-                            <div onClick={() => setMenuOpen(true)}>
+                        </Link>
+                        <Link to={'/Jornadas'} style={{textDecoration:'none'}}>
+                            <div onClick={() => handleOpenMenuSidebar(1)}>
                                 <img src={Curso} alt="" />
-                                <strong>Cursos</strong>
+                                <strong>Jornadas</strong>
                             </div>
-                            <div onClick={() => setMenuOpen(true)}>
+                        </Link>
+                            <div onClick={() => handleOpenMenuSidebar(0)}>
                                 <img src={Diploma} alt="" />
                                 <strong>Certificados</strong>
                             </div>
-                            {/*
-                            <div onClick={() => setMenuOpen(true)}>
-                                <img src={Monitor} alt="" />
-                                <strong>Monitor</strong>
-                            </div> */}
                         </main>
                         <footer>
                             <div>
                                 <img src={Sino} alt="Notificações" />
                                 
                                 <div className='circulo_nome'
-                                onClick={onRequestOpen}>
+                                onClick={handleOpenModalUser}>
                                     <label>NJ</label>
                                 </div>
                             </div>
@@ -101,30 +117,28 @@ export function Sidebar(){
                     </header>
                     <main>
                         <Link to={'/home'} style={{textDecoration:'none'}}>
-                            <div>
+                            <div onClick={() => handleOpenMenuSidebar(1)}>
                                 <img src={Home} alt="" />
                                 <strong>Home</strong>
                             </div>
                         </Link>
                         <Link to={'/Jornadas'} style={{textDecoration:'none'}}>
-                            <div>
+                            <div onClick={() => handleOpenMenuSidebar(1)}>
                                 <img src={Curso} alt="" />
                                 <strong>Jornadas</strong>
                             </div>
                         </Link>
-                        <Link to={'/Certificados'} style={{textDecoration:'none'}}>
-                            <div onClick={() => setMenuOpen(true)}>
+                            <div onClick={() => handleOpenMenuSidebar(0)}>
                                 <img src={Diploma} alt="" />
                                 <strong>Certificados</strong>
                             </div>
-                        </Link>
                     </main>
                     <footer>
                         <div>
                             <img src={Sino} alt="Notificações" />
                             
                             <div className='circulo_nome'
-                                onClick={onRequestOpen}>
+                                onClick={handleOpenModalUser}>
                                     <label>NJ</label>
                             </div>
                                 <Modal
@@ -139,7 +153,7 @@ export function Sidebar(){
                                         <img src={Close} alt="Fechar" />
                                     </button>
 
-                                    <Link to="/usuario" className='link_to_usuario'>
+                                    <Link to="/usuario" className='link_to_usuario' onClick={onRequestClose}>
                                        <p>Editar perfil</p> 
                                     </Link>
 
@@ -158,21 +172,25 @@ export function Sidebar(){
 
                             <div className='subtitulos_menu'>
                                 <Link to={'/login'}
-                                style={{textDecoration: 'none', width: '100%'}}>
+                                style={{textDecoration: 'none', width: '100%'}}
+                                onClick={() => setMenuOpen(false)}>
                                     <p>
                                         Login
                                     </p>
                                 </Link>
                                 <Link to={'/home'} 
-                                style={{textDecoration: 'none', width: '100%'}}>
+                                style={{textDecoration: 'none', width: '100%'}}
+                                onClick={() => setMenuOpen(false)}>
                                     <p>Home</p>
                                 </Link>
                                 <Link to={'/usuario'} 
-                                style={{textDecoration: 'none', width: '100%'}}>
+                                style={{textDecoration: 'none', width: '100%'}}
+                                onClick={() => setMenuOpen(false)}>
                                     <p>Usuário</p>
                                 </Link>
                                 <Link to={'/HomeCursos'}
-                                style={{textDecoration: 'none', width: '100%'}}>
+                                style={{textDecoration: 'none', width: '100%'}}
+                                onClick={() => setMenuOpen(false)}>
                                     <p>Cursos</p>
                                 </Link>
                             </div>
@@ -181,6 +199,7 @@ export function Sidebar(){
                     </div>
                 </ContainerSidebarMenu>
             </ContainerSidebar>
+            </div>
         )
     }
     else{

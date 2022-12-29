@@ -22,21 +22,28 @@ export function App() {
       <AuthProvider>
         <BrowserRouter>
 
-          <div style={{display: 'flex'}}>
-            <Sidebar/>
+          <Routes>
+            <Route element={ <Login /> } path="/login"/>
+          </Routes>
+          <div className="app_container">
+            <div>
+                <Sidebar />
+            </div>  
             
-            <Routes>
-              <Route element={ <Preloader /> } path="/"/>
-              <Route element={ <Login /> } path="/login"/>
-              <Route path="/home" element={<RequireAuth><Home /></RequireAuth>} />
-              <Route path="/usuario" element={<RequireAuth><EditUser /></RequireAuth>} />
-              <Route path="/aulas" element={<RequireAuth><ReprodutorAulas /></RequireAuth>} />
-              <Route path="/CadastroAulas" element={<RequireAuth><CadastroAulas /></RequireAuth>} />
-              <Route path="/CadastroCurso" element={<RequireAuth><CadastroCurso /></RequireAuth>} />
-              <Route path="/Jornadas" element={<RequireAuth><Jornadas /></RequireAuth>} />
-              <Route path="/HomeCursos" element={<RequireAuth><HomeCursos /></RequireAuth>} />
-              <Route path="/Cursos" element={<RequireAuth><CursosLista /></RequireAuth>} />
-            </Routes>
+            <div>
+              <Routes>
+                <Route element={ <Preloader /> } path="/"/>
+                        
+                <Route path="/home" element={<RequireAuth><Home /></RequireAuth>} />
+                <Route path="/usuario" element={<RequireAuth><EditUser /></RequireAuth>} />
+                <Route path="/aulas" element={<RequireAuth><ReprodutorAulas /></RequireAuth>} />
+                <Route path="/CadastroAulas" element={<RequireAuth><CadastroAulas /></RequireAuth>} />
+                <Route path="/CadastroCurso" element={<RequireAuth><CadastroCurso /></RequireAuth>} />
+                <Route path="/Jornadas" element={<RequireAuth><Jornadas /></RequireAuth>} />
+                <Route path="/HomeCursos" element={<RequireAuth><HomeCursos /></RequireAuth>} />
+                <Route path="/Cursos" element={<RequireAuth><CursosLista /></RequireAuth>} />
+              </Routes>
+            </div>
           </div>
           <GlobalStyles />
         </BrowserRouter>
