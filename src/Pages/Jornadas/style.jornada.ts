@@ -55,7 +55,7 @@ export const ContainerJornada = styled.div`
     }
 
     .jornada_card{
-        min-width: 14%;
+        min-width: 250px;
         display: flex;
         margin: 0rem 1rem;
         flex-direction: column;
