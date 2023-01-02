@@ -23,8 +23,10 @@ export function App() {
         <BrowserRouter>
 
           <Routes>
+            <Route element={ <Preloader /> } path="/"/>
             <Route element={ <Login /> } path="/login"/>
           </Routes>
+          
           <div className="app_container">
             <div>
                 <Sidebar />
@@ -32,7 +34,7 @@ export function App() {
             
             <div>
               <Routes>
-                <Route element={ <Preloader /> } path="/"/>
+                
                         
                 <Route path="/home" element={<RequireAuth><Home /></RequireAuth>} />
                 <Route path="/usuario" element={<RequireAuth><EditUser /></RequireAuth>} />

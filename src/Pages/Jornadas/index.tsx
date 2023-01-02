@@ -485,7 +485,7 @@ export function Jornadas(){
                     </header>
                     <main>
                         <input type="text"
-                        placeholder="Pesquisar..."
+                        placeholder="Titulo ou Id..."
                         onChange={(e)=> {setPesquisaJornada(e.target.value)}}/>
 
                         <button type="button">

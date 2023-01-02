@@ -7,7 +7,7 @@ export const ContainerLogin = styled.div`
     height: 100vh;
     width: 100%;
     position: fixed;
-    
+    z-index: 1000000;
     display: flex;
     align-items: center;
     justify-content: center;

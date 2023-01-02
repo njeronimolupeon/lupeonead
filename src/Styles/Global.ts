@@ -66,8 +66,6 @@ export const GlobalStyles = createGlobalStyle`
     grid-column-gap: 1rem;
   }
 
-
-
   /* Style modal User */
   
   .react-modal-overlay{

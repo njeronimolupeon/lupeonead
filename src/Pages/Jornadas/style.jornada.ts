@@ -40,6 +40,7 @@ export const ContainerJornada = styled.div`
         position: relative;
         padding-bottom: 1rem;
         transition: 0.2s all ease-in-out;
+        scroll-behavior: smooth;
 
         ::-webkit-scrollbar-track {
             background: rgb(240,240,240);        /* color of the tracking area */

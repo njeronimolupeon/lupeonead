@@ -226,15 +226,18 @@ export const ContainerSidebar = styled.div`
 
 export const ContainerSidebarMenu = styled.div`
     transition: 0.2s all;
-    z-index: 10000;
+    left: 6.1rem;
+    position: absolute;
+    z-index: 1;
+    top: 1rem;
 
     .sidebar-menu{
         width: 8rem;
         height: 97vh;
         background-color: var(--azul-primary);
-        position: absolute;
-        left: 6.1rem;
-        top: 1rem;
+        
+        
+        
         color: var(--white);
         box-shadow: var(--boxshadow);
 

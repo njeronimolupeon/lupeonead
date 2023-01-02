@@ -5,7 +5,7 @@ import imgFundoHeader from '../../assets/img_icones/negocios.png';
 export const ContainerHeader = styled.div`
 
     width: 100%;
-    height: 2rem;
+    height: 3rem;
     display: flex;
     background-color: var(--white);
     border-radius: 8px;
@@ -30,7 +30,7 @@ export const ContainerHeader = styled.div`
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        padding-right: 5rem;
+        padding-right: 3rem;
 
         border-radius: 6px;
 

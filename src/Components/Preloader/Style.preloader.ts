@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 export const ContainerPreloader = styled.div`
 
-    position: absolute;
+    position: fixed;
+    z-index: 1000000;
     height: 100vh;
     width: 100%;
     background-color: var(--azul-primary);
