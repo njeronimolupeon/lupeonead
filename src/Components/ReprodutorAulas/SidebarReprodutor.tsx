@@ -9,7 +9,7 @@ export function SidebarReprodutor(){
             <h1>Cronograma de aulas</h1>  
           </header> 
           <div className="container_lessons">
-            <Lesson />
+            {/* <Lesson /> */}
           </div> 
           
         </ContainerSidebarReprodutor>

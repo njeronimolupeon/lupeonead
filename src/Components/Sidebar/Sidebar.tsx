@@ -62,7 +62,7 @@ export function Sidebar(){
     if(Auth.user)
     {
         return(
-            <div style={{position:'relative', width:'6.1rem'}}>
+            <div style={{position:'fixed', zIndex:51, width:'4.5rem'}}>
             <ContainerSidebar>
                     <button className='btn_abrirfechar_menumob'>
                         <input id="menu-hamburguer" type="checkbox" onClick={onHandleMenuMobile}/>
