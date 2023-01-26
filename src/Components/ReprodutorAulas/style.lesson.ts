@@ -4,7 +4,7 @@ export const ContainerLesson = styled.div`
 
     width: 100%;
     background-color: var(--gray-1);
-    
+    padding: 0.8rem;
     border-radius: 3px;
     transition: 0.2s all;
 

@@ -167,4 +167,5 @@ export function DetailJornada(){
             </div>
         </ContainerDetailJornada>
     )
+
 }

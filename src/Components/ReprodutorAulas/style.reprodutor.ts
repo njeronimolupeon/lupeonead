@@ -150,7 +150,6 @@ export const ContainerReprodutor = styled.div`
                 border-radius: 6px;
             }
         }
-
         @media(min-width:1024px){
             main{
                 max-height: 10.3rem;

@@ -13,7 +13,6 @@ import { EadProvasContext } from "../../contexts/EadContext/Provas/EadProvasCont
 import { ProvaProps } from "../../@types/prova";
 import { Prova } from "./Prova";
 
-
 export function ReprodutorAulas(){
 
     const { aulaId } = useParams();
@@ -100,9 +99,8 @@ export function ReprodutorAulas(){
                             {provaAtiva.length > 0 ?
                                 <button onClick={() => setRealizarProva(!realizarProva)}>Fazer prova</button> : <div></div>
                             }
+                            <button>Fazer prova</button>
                         </div>
-
-                        <span></span>
 
                         <div className="container_lessons">
                             <h4>Aulas da mesma jornada:</h4>
@@ -113,7 +111,6 @@ export function ReprodutorAulas(){
                                         <Lesson key={aula.cursoId} aulaId = {aula.cursoId} titulo={aula.titulo} ></Lesson>
                                     )
                                 })}
-                                
                             </main>
                         </div>
                     </div>

@@ -8,7 +8,7 @@ interface LessonProps{
     titulo : string;
 }
 
-export function Lesson({ aulaId, titulo }: LessonProps){
+export function Lesson({ aulaId , titulo}: LessonProps){
 
     const navigate = useNavigate();
 
@@ -20,6 +20,7 @@ export function Lesson({ aulaId, titulo }: LessonProps){
         <ContainerLesson>
             <header onClick={() => aulaId != undefined ? redirectForVideo(aulaId) : {}}>
                 <Reproduzir fill='' stroke=""/>
+
                 <div className="content_header_lesson"> 
                     <h3>{titulo}</h3>
                 </div>

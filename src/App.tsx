@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home }  from "./Pages/Home/Home";
+import { Home } from "./Pages/Home/Home";
 import { Login } from "./Components/Login/Login";
 import { Preloader } from "./Components/Preloader/Preloader";
 import { Sidebar } from "./Components/Sidebar/Sidebar";
@@ -55,6 +55,7 @@ export function App() {
                 <Route path="/Jornadas/Detalhe/:jornadaId" element={<RequireAuth><DetailJornada /></RequireAuth>} />
                 <Route path="/CadastroAvaliacao" element={<RequireAuth><CadastroProvas /></RequireAuth>} />
                 <Route path="/CadastroResposta" element={<RequireAuth><CadastroResposta /></RequireAuth>} />
+                <Route path="/Jornadas/DetailJornada/:jornadaId" element={<RequireAuth><DetailJornada /></RequireAuth>} />
               </Routes>
             </div>
           </div>

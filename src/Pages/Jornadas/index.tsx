@@ -111,6 +111,7 @@ export function Jornadas(){
         });
 
         eadContext.setCursoFunction(jornadaFilter_);
+
     }
 
     function filterTela(categoria: string){
@@ -120,6 +121,9 @@ export function Jornadas(){
             const cursosFilter_ = cursosFilter.filter(c => c.favorito === true);
 
             setCursosFilter(cursosFilter_);
+            const jornadaFilter_ = eadContext.cursos.filter(c => c.favorito === true);
+
+            setCursosFilter(jornadaFilter_);
             setFilter(2);
 
         }
