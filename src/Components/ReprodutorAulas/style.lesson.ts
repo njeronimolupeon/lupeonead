@@ -14,7 +14,6 @@ export const ContainerLesson = styled.div`
     }
 
     header{
-        padding: 0.8rem;
         display: flex;
         color:var(--azul-secundary);
         border: none;

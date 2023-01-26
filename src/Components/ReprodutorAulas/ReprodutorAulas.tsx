@@ -99,7 +99,6 @@ export function ReprodutorAulas(){
                             {provaAtiva.length > 0 ?
                                 <button onClick={() => setRealizarProva(!realizarProva)}>Fazer prova</button> : <div></div>
                             }
-                            <button>Fazer prova</button>
                         </div>
 
                         <div className="container_lessons">
