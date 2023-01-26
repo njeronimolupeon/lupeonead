@@ -1,444 +1,48 @@
 
 import { format } from 'date-fns';
-import { ContainerJornada } from "./style.jornada";
-import { useState, useEffect, useRef } from 'react';
+import { ContainerFilters, ContainerJornada } from "./style.jornada";
+import { useState, useEffect, useRef, useContext } from 'react';
 import { motion } from "framer-motion";
 
 import seta from '../../assets/img_icones/seta_esquerda.png';
 import lupa from '../../assets/img_icones/search.png';
 import { Header } from "../../Components/Header/Header";
-import { ContainerHome } from "../../Components/Home/Style.home";
+import { ContainerHome } from "../Home/Style.home";
+import { Link, useNavigate } from 'react-router-dom';
+import { CursoProps } from '../../@types/curso';
+import { JornadaProps } from '../../@types/jornada';
+import { EadContext } from '../../contexts/EadContext/JornadaAndCursos/EadContext';
+import { Coracao } from '../../Components/SVGComponents/Coracao';
 
-interface JornadaProps{
-    jornadaId: number;
-    categoria: number;
-    titulo: string;
-    cursos: CursoProps[];
-}
 
-interface CursoProps{
-    cursoId: string;
-    titulo: string;
-    autor: string;
-    dataAtualizacao: Date;
-    cursoDuracao: string;
-    descricaoPopup: string;
-}
 
 export function Jornadas(){
 
     const[jornadas, setJornadas] = useState<JornadaProps[]>([]);
     const[jornadasFilter, setJornadasFilter] = useState<JornadaProps[]>([]);
+    const[cursosFilter, setCursosFilter] = useState<CursoProps[]>([]);
     const[pesquisaJornada, setPesquisaJornada] = useState('');
     const[carouselFilter, setCarouselFilter] = useState([]);
+    const[filter, setFilter] = useState(1);
+
+    const eadContext = useContext(EadContext);
 
     const carousel = useRef<any>([]);
     carousel.current = []
 
-    useEffect(()=>{
-        const jornadas_ = [
-        {
-            jornadaId: 1,
-            categoria: 1,
-            titulo: 'Continue assistindo',
-            cursos : [{
-                cursoId: '20',
-                titulo: 'LCS - Como cadastrar RoboCTe',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },{
-                cursoId: '21',
-                titulo: 'LCS - Como cadastrar Colaborador',
-                autor: 'Vinicius Vieira',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },
-            {
-                cursoId: '22',
-                titulo: 'LCS - Como cadastrar Permissão',
-                autor: 'Leandro',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            }
-            ]
-        },
-        {
-            jornadaId: 2,
-            categoria: 2,
-            titulo: 'Adicionados Recentemente',
-            cursos : [{
-                cursoId: '24',
-                titulo: 'Portal - como executar um procedure de NFe',
-                autor: 'João Batista',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },{
-                cursoId: '25',
-                titulo: 'EAD - Como cadastrar Curso',
-                autor: 'Vinicius Vieira',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },
-            {
-                cursoId: '26',
-                titulo: 'EAD - Como cadastrar uma Jornada',
-                autor: 'Nicolas Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            }
-            ]
-        },{
-            jornadaId: 3,
-            categoria: 3,
-            titulo: 'Jornada 1',
-            cursos : [{
-                cursoId: '1',
-                titulo: 'LCS - Como cadastrar atividades',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },{
-                cursoId: '2',
-                titulo: 'LCS - Como cadastrar chamado',
-                autor: 'Vinicius Vieira',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },
-            {
-                cursoId: '3',
-                titulo: 'LCS - Como cadastrar rotina',
-                autor: 'Leandro',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },
-            {
-                cursoId: '4',
-                titulo: 'LCS - Como cadastrar task',
-                autor: 'Vinicius Silva',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            }]
-        },
-        {
-            jornadaId: 4,
-            categoria: 3,
-            titulo: 'Jornada 2',
-            cursos : [{
-                cursoId: '5',
-                titulo: 'LCS - Como cadastrar customização',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },{
-                cursoId: '6',
-                titulo: 'LCS - Como cadastrar projeto',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },{
-                cursoId: '7',
-                titulo: 'LCS - Como cadastrar atividades',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },{
-                cursoId: '8',
-                titulo: 'LCS - Como cadastrar atividades',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },{
-                cursoId: '9',
-                titulo: 'LCS - Como cadastrar atividades',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },{
-                cursoId: '10',
-                titulo: 'LCS - Como cadastrar atividades',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            }]
-        },{
-            jornadaId: 5,
-            categoria: 3,
-            titulo: 'Jornada 3',
-            cursos: [{
-                cursoId: '11',
-                titulo: 'LCS - Como cadastrar atividades',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },{
-                cursoId: '12',
-                titulo: 'LCS - Como cadastrar atividades',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },{
-                cursoId: '13',
-                titulo: 'LCS - Como cadastrar atividades',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },{
-                cursoId: '14',
-                titulo: 'LCS - Como cadastrar atividades',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },{
-                cursoId: '15',
-                titulo: 'LCS - Como cadastrar atividades',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            },{
-                cursoId: '16',
-                titulo: 'LCS - Como cadastrar atividades',
-                autor: 'Nicolas Gonçalves Jerônimo',
-                dataAtualizacao: new Date(),
-                cursoDuracao: '1h',
-                descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-            }]
-        }
-        ]
-
-        setJornadas(jornadas_);
-        setJornadasFilter(jornadas_);
-
-    },[]);
+    useEffect(() => {
+        setJornadasFilter(eadContext.jornadas);
+        setCursosFilter(eadContext.cursos);
+    }, [eadContext.cursos]);
 
     useEffect(() => {
         if(pesquisaJornada != ''){
-            const jornadaFilter_ = jornadas.map(jornada => {
-                return (
-                    {
-                        jornadaId : jornada.jornadaId,
-                        categoria : jornada.categoria,
-                        titulo : jornada.titulo,
-                        cursos: jornada.cursos.filter(curso => curso.cursoId === pesquisaJornada || curso.titulo.includes(pesquisaJornada))
-                    }
-                )
-            });
+            const cursosFilter_ = cursosFilter.filter(c => c.cursoId === parseInt(pesquisaJornada) || c.titulo.includes(pesquisaJornada));
 
-            setJornadasFilter(jornadaFilter_);
+            setCursosFilter(cursosFilter_);
         }else{
-            const jornadas_ = [
-                {
-                    jornadaId: 1,
-                    categoria: 1,
-                    titulo: 'Continue assistindo',
-                    cursos : [{
-                        cursoId: '20',
-                        titulo: 'LCS - Como cadastrar RoboCTe',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },{
-                        cursoId: '21',
-                        titulo: 'LCS - Como cadastrar Colaborador',
-                        autor: 'Vinicius Vieira',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },
-                    {
-                        cursoId: '22',
-                        titulo: 'LCS - Como cadastrar Permissão',
-                        autor: 'Leandro',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    }
-                    ]
-                },
-                {
-                    jornadaId: 2,
-                    categoria: 2,
-                    titulo: 'Adicionados Recentemente',
-                    cursos : [{
-                        cursoId: '24',
-                        titulo: 'Portal - como executar um procedure de NFe',
-                        autor: 'João Batista',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },{
-                        cursoId: '25',
-                        titulo: 'EAD - Como cadastrar Curso',
-                        autor: 'Vinicius Vieira',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },
-                    {
-                        cursoId: '26',
-                        titulo: 'EAD - Como cadastrar uma Jornada',
-                        autor: 'Nicolas Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    }
-                    ]
-                },{
-                    jornadaId: 3,
-                    categoria: 3,
-                    titulo: 'Jornada 1',
-                    cursos : [{
-                        cursoId: '1',
-                        titulo: 'LCS - Como cadastrar atividades',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },{
-                        cursoId: '2',
-                        titulo: 'LCS - Como cadastrar chamado',
-                        autor: 'Vinicius Vieira',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },
-                    {
-                        cursoId: '3',
-                        titulo: 'LCS - Como cadastrar rotina',
-                        autor: 'Leandro',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },
-                    {
-                        cursoId: '4',
-                        titulo: 'LCS - Como cadastrar task',
-                        autor: 'Vinicius Silva',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    }]
-                },
-                {
-                    jornadaId: 4,
-                    categoria: 3,
-                    titulo: 'Jornada 2',
-                    cursos : [{
-                        cursoId: '5',
-                        titulo: 'LCS - Como cadastrar customização',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },{
-                        cursoId: '6',
-                        titulo: 'LCS - Como cadastrar projeto',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },{
-                        cursoId: '7',
-                        titulo: 'LCS - Como cadastrar atividades',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },{
-                        cursoId: '8',
-                        titulo: 'LCS - Como cadastrar atividades',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },{
-                        cursoId: '9',
-                        titulo: 'LCS - Como cadastrar atividades',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },{
-                        cursoId: '10',
-                        titulo: 'LCS - Como cadastrar atividades',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    }]
-                },{
-                    jornadaId: 5,
-                    categoria: 3,
-                    titulo: 'Jornada 3',
-                    cursos: [{
-                        cursoId: '11',
-                        titulo: 'LCS - Como cadastrar atividades',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },{
-                        cursoId: '12',
-                        titulo: 'LCS - Como cadastrar atividades',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },{
-                        cursoId: '13',
-                        titulo: 'LCS - Como cadastrar atividades',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },{
-                        cursoId: '14',
-                        titulo: 'LCS - Como cadastrar atividades',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },{
-                        cursoId: '15',
-                        titulo: 'LCS - Como cadastrar atividades',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    },{
-                        cursoId: '16',
-                        titulo: 'LCS - Como cadastrar atividades',
-                        autor: 'Nicolas Gonçalves Jerônimo',
-                        dataAtualizacao: new Date(),
-                        cursoDuracao: '1h',
-                        descricaoPopup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In posuere, tortor sed mollis lacinia, dui dolor ullamcorper odio, a tempor justo sapien a sapien.'
-                    }]
-                }
-                ]
 
-            setJornadasFilter([...jornadas_]);
+            setCursosFilter(eadContext.cursos);
         }
     }, [pesquisaJornada])
 
@@ -475,7 +79,57 @@ export function Jornadas(){
         carousel.current[numero].scrollLeft -= carousel.current[numero].offsetWidth;
     }
 
-    console.log(jornadasFilter);
+    const navigate = useNavigate();
+
+    function redirectForVideo(cursoId: number){
+        navigate(`/Aula/${cursoId}`);
+    }
+
+    function handleFavorite(cursoId: number){
+        const jornadaFilter_ = eadContext.cursos.map(curso => {
+            if(curso.cursoId === cursoId){
+              
+                return {
+                    cursoId: curso.cursoId,
+                    jornadaId: curso.jornadaId,
+                    dataAtualizacao: curso.dataAtualizacao,
+                    titulo: curso.titulo,
+                    autor: curso.autor,
+                    cursoStatusId: curso.cursoStatusId,
+                    cursoStatus: curso.cursoStatus,
+                    nota: curso.nota,
+                    cursoDificuldadeId: curso.cursoDificuldadeId,
+                    cursoDificuldade: curso.cursoDificuldade,
+                    cursoDuracao: curso.cursoDuracao,
+                    favorito: !curso.favorito,
+                    descricaoPopup: curso.descricaoPopup
+                }  
+
+            }else{
+                return curso;
+            }
+        });
+
+        eadContext.setCursoFunction(jornadaFilter_);
+    }
+
+    function filterTela(categoria: string){
+        // console.log(cursoId);
+
+        if(categoria === 'favorito'){
+            const cursosFilter_ = cursosFilter.filter(c => c.favorito === true);
+
+            setCursosFilter(cursosFilter_);
+            setFilter(2);
+
+        }
+
+        if(categoria === 'todas'){
+            setCursosFilter(eadContext.cursos);
+            setFilter(1);
+        }
+    }
+
 
     return(
         <div style={{width:'100%', padding:'1rem'}}>
@@ -493,47 +147,68 @@ export function Jornadas(){
                     </main>
             </ContainerHome>
 
+            <ContainerFilters>
+                <div className='container_filters'>
+                    <h4>Filtrar por:</h4>
+                    <button 
+                    className='btn_todas'
+                    onClick={() => filterTela('todas')}
+                    style={filter == 1 ? {color:'white',backgroundColor:'#0c6bff'} : {backgroundColor:'rgb(240, 240, 240)'}}
+                    >Todas</button>
+
+                    <button 
+                    className='btn_favoritos'
+                    onClick={() => filterTela('favorito')}
+                    style={filter == 2 ? {color:'white',backgroundColor:'#0c6bff'} : {backgroundColor:'rgb(240, 240, 240)'}}
+                    >Favoritos</button>
+                </div>
+            </ContainerFilters>
+
             <ContainerJornada>
                 <div className="jornada_row">
+
                     {jornadasFilter.map((jornada, index) => {
                         return(
                             <div style={{position:'relative', paddingBottom:'2.5rem'}} key={jornada.jornadaId}>
-                                <h3>{jornada.cursos.length >= 1 ? jornada.titulo : ''}</h3>
+                                <Link to={`Detalhe/${jornada.jornadaId}`} style={{textDecoration:'none', color:'black'}}>
+                                    <h3 >{eadContext.cursos[index] ? jornada.titulo : ''}</h3>
+                                </Link>
                                 <motion.div className="jornada_cards"
                                 ref={addToRef}>
                                     <motion.div
                                     className="jornada_inner">
-                                        {jornada.cursos.map(curso => {
+                                        {eadContext.cursos ? cursosFilter.map(curso => {
                                             return(
-                                                <div className='jornada_card' key={curso.cursoId}>
+                                                curso.jornadaId === jornada.jornadaId ?
+                                                <div className='jornada_card' key={curso?.cursoId}>
                                                     <header className='jornada_card_header'></header>
                                                     <div className='jornada_card_titulo'>
-                                                        <h2>{curso.titulo} {curso.cursoId}</h2>
-                                                        <p>{curso.autor}</p>
+                                                        <h2>{curso?.titulo} {curso?.cursoId}</h2>
+                                                        <p>{curso?.autor} <button type='button' onClick={() => handleFavorite(curso?.cursoId)}> <Coracao fill={ curso.favorito == true ? '#0c6bff' : 'rgb(230, 230, 230)' } stroke=''/> </button></p>
                                                     </div>
 
                                                     <div className='modal_popup'>
                                                         <div className='modal_popup_content'>
                                                             <div className='modal_popup_titulo'>
-                                                                <h2>{curso.titulo} {curso.cursoId}</h2>
-                                                                <p> {format(curso.dataAtualizacao, 'dd/MM/yyyy')} | {curso.cursoDuracao} curso completo </p>
+                                                                <h2>{curso?.titulo} {curso?.cursoId}</h2>
+                                                                <p> {format(new Date(curso.dataAtualizacao), 'dd/MM/yyyy')} | {curso.cursoDuracao} curso completo </p>
                                                             </div>
                                                             <div className='modal_popup_descricao'>
-                                                                <p>{curso.descricaoPopup }</p>
+                                                                <p>{curso?.descricaoPopup }</p>
                                                             </div>
 
-                                                            <button type='button'>Assistir</button>
+                                                            <button type='button' onClick={() => redirectForVideo(curso?.cursoId)}>Assistir</button>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> : <div></div>
                                             )
-                                        })}
+                                        }): '' }
                                     </motion.div>
                                     
                                 </motion.div>
                                 
-                                <button style={jornada.cursos.length > 4 ? {} : {display:'none'} } onClick={() => onHandleTranslateRight(index)} className="btn-right"><img src={seta} /></button>
-                                <button style={jornada.cursos.length > 4 ? {} : {display:'none'} } onClick={() => onHandleTranslateLeft(index)} className="btn-left"><img src={seta} /></button>
+                                <button style={cursosFilter[index] != null ? cursosFilter?.length > 4 ? {} : {display: 'none'} : {display: 'none'}} onClick={() => onHandleTranslateRight(index)} className="btn-right"><img src={seta} /></button>
+                                <button style={cursosFilter[index] != null ? cursosFilter?.length > 4 ? {} : {display: 'none'} : {display: 'none'}} onClick={() => onHandleTranslateLeft(index)} className="btn-left"><img src={seta} /></button>
                             </div>
                         )
                     })}

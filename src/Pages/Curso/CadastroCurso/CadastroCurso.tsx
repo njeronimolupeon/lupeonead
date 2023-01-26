@@ -1,15 +1,18 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { EadContext } from "../../../contexts/EadContext/JornadaAndCursos/EadContext";
 import { apiApp } from "../../../hooks/useApiApp";
 import { ContainerCadastroAulas } from "../style.curso";
 
 
-export function CadastroCurso(){
+export function CadastroJornada(){
 
     const[titulo, setTitulo] = useState('');
     const[descricao, setDescricao] = useState('');
-    const[categoria, setCategoria] = useState('');
-
+    const[categoria, setCategoria] = useState(0);
+    
+    const eadContext = useContext(EadContext);
+    
     const listCategoria = [
         {id: 1, name: 'LCS'},
         {id: 2, name: 'PORTAL'},
@@ -17,33 +20,38 @@ export function CadastroCurso(){
       ];
 
     useEffect(()=>{
-        setCategoria(listCategoria[0].name);
+        setCategoria(listCategoria[0].id);
     }, []);
 
     function onSubmitCadastroCurso(event:FormEvent){
         event.preventDefault();
 
-        if(titulo == "" || descricao == "" || categoria == ""){
+        if(titulo == "" || descricao == "" || categoria == 0){
             toast.error('Preencha todos os campos antes de enviar!');
             return
         }
 
         const cursos = {
-            Titulo: titulo,
-            Descricao : descricao,
-            Categoria: categoria,
-            Id : Math.random()
+            jornadaId: parseInt((Math.random() * 100).toFixed(0)),
+            categoria: categoria,
+            titulo: titulo,
+            matriculas: null,
+            descricao : descricao,
+            cursos: null
         }
-
-        apiApp.post('/cursos', cursos).then((res) => {res.status});
-        toast.success('Curso cadastrado com sucesso');
+        
+        eadContext.setJornadaFunction([cursos]);
+        // apiApp.post('/cursos', cursos).then((res) => {res.status});
+        toast.success('Curso cadastrado com sucesso'); 
     }
+
+    
 
     return(
         <div style={{padding:'1rem'}}>
         <ContainerCadastroAulas>
             <header>
-                <h2>Cadastro de curso</h2>
+                <h2>Cadastro de jornada</h2>
             </header>
             <form onSubmit={onSubmitCadastroCurso}>
                 <div className="container_content_1">
@@ -73,10 +81,10 @@ export function CadastroCurso(){
 
                     <div className="div_container_inputs">
                         <label htmlFor="">Categoria:</label>
-                        <select onChange={(e) => {setCategoria(e.target.value)}}>
+                        <select onChange={(e) => {setCategoria(parseInt(e.target.value))}}>
                             {listCategoria.map(list => {
                                 return (
-                                    <option key={list.id} value={list.name}>{list.name}</option>
+                                    <option key={list.id} value={list.id}>{list.name}</option>
                                 )
                             })}
                         </select>

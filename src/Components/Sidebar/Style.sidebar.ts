@@ -4,6 +4,7 @@ export const ContainerSidebar = styled.div`
     display: flex;
     position: relative;
     width: 100%;
+    
 
     .container_sidebar,
     .container_sidebar_mobile{
@@ -65,8 +66,9 @@ export const ContainerSidebar = styled.div`
 
             strong{
                 margin-top: 0.32rem;
-                font-size: 0.6rem;
+                font-size: 0.475rem;
                 text-transform: uppercase;
+                font-weight: 600;
                 color: var(--azul-primary);
             }
 
@@ -226,7 +228,7 @@ export const ContainerSidebar = styled.div`
 
 export const ContainerSidebarMenu = styled.div`
     transition: 0.2s all;
-    left: 6.1rem;
+    left: 4.5rem;
     position: absolute;
     z-index: 1;
     top: 1rem;

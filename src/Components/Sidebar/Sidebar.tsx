@@ -62,7 +62,7 @@ export function Sidebar(){
     if(Auth.user)
     {
         return(
-            <div style={{position:'relative', width:'6.1rem'}}>
+            <div style={{position:'fixed', zIndex:51, width:'4.5rem'}}>
             <ContainerSidebar>
                     <button className='btn_abrirfechar_menumob'>
                         <input id="menu-hamburguer" type="checkbox" onClick={onHandleMenuMobile}/>
@@ -171,27 +171,27 @@ export function Sidebar(){
                             </button>
 
                             <div className='subtitulos_menu'>
-                                <Link to={'/login'}
+                                {/* <Link to={'/login'}
                                 style={{textDecoration: 'none', width: '100%'}}
                                 onClick={() => setMenuOpen(false)}>
                                     <p>
                                         Login
                                     </p>
-                                </Link>
-                                <Link to={'/home'} 
+                                </Link> */}
+                                {/* <Link to={'/home'} 
                                 style={{textDecoration: 'none', width: '100%'}}
                                 onClick={() => setMenuOpen(false)}>
                                     <p>Home</p>
-                                </Link>
-                                <Link to={'/usuario'} 
+                                </Link> */}
+                                {/* <Link to={'/usuario'} 
                                 style={{textDecoration: 'none', width: '100%'}}
                                 onClick={() => setMenuOpen(false)}>
                                     <p>Usuário</p>
-                                </Link>
+                                </Link> */}
                                 <Link to={'/HomeCursos'}
                                 style={{textDecoration: 'none', width: '100%'}}
                                 onClick={() => setMenuOpen(false)}>
-                                    <p>Cursos</p>
+                                    <p>Cadastrar</p>
                                 </Link>
                             </div>
 

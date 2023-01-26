@@ -1,5 +1,46 @@
 import styled from 'styled-components'
 
+export const ContainerFilters = styled.div`
+    width: 100%;
+    padding: 0rem 0rem 0.5rem 0.5rem;
+    
+    .container_filters{
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+
+        h4{
+            font-size: 0.875rem;
+        }
+        
+
+        button{
+            border: none;
+            border-radius: 12px;
+            padding: 0.5rem 1rem;
+            font-size: 0.7rem;
+            /* margin: 0.3rem; */
+            transition: 0.2s all ease-in-out;
+
+            &:hover{
+                opacity: 0.6;
+                cursor: pointer;
+            }
+            
+        }
+
+        .btn_todas{
+            margin-left: 1rem;
+        }
+
+        .btn_favoritos{
+            margin-left: 0.5rem;
+        }
+
+    }
+    
+`
+
 export const ContainerJornada = styled.div`
 
     width: 100%;    
@@ -18,6 +59,12 @@ export const ContainerJornada = styled.div`
         h3{
             padding-left: 1rem;
             font-size:1rem;
+            cursor:pointer;
+            transition: 0.3s all ease-in-out;
+
+            &:hover{
+                color: var(--azul-secundary);
+            }
         }
     }
 
@@ -62,6 +109,7 @@ export const ContainerJornada = styled.div`
 
     .jornada_card{
         min-width: 250px;
+        max-width: 250px;
         display: flex;
         margin: 0rem 1rem;
         flex-direction: column;
@@ -83,6 +131,30 @@ export const ContainerJornada = styled.div`
             p{
                 color: var(--gray-text);
                 font-size: 0.7rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                button{
+                    border: none;
+                    background-color: transparent;
+                    
+                    
+                    svg{
+                        width: 2rem;
+                        height: 1.5rem;
+                        transition: 0.5s all ease-in-out;
+
+                        &:hover{
+                            cursor: pointer;
+                        }
+
+                        &:hover path{
+                            fill: #2121E0;
+                        }
+                    }
+                    
+                }
             }
         }
 
@@ -231,4 +303,212 @@ export const ContainerJornada = styled.div`
     
 
 
+`
+
+export const ContainerDetailJornada = styled.div`
+    width: 100%;
+    padding: 1rem;
+
+    .container_content{
+        display: flex;
+        width: 100%;
+    }
+
+    .content{
+        width: 80%;
+        
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .container_dados_jornada{
+        width: 30%;
+        padding: 0rem 1rem;
+    }
+
+    .container_infogeral_jornada{
+        display: flex;
+        padding: 1rem;
+        width: 100%;
+        background-color: white;
+        border-radius: 6px;
+    }
+
+    .img_jornada{
+        padding: 4rem 4rem;
+        background-color: aliceblue;
+    }
+
+    .content_infogeral_jornada{
+        padding: 0rem 2.5rem;
+        
+        width: 100%;
+
+        h3{
+            font-size: 1.1rem;
+        }
+
+        .container_desc_infogeral_jornada{
+            padding: 1rem 0rem;
+
+            p{
+                color:var(--gray-text);
+                font-size: 0.875rem;
+            }
+        }
+
+        .container_progresso_infogeral_jornada{
+            width: 100%;
+            
+
+            .container_barraprogressao{
+                margin-top: 0.8rem;
+                background-color: rgb(235,235,235);
+                width: 80%;
+                height: 0.8rem;
+
+                .barra_progressao{
+                    /* width: 50%; */
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+
+//listagem de aulas
+
+    .container_lista_aulas{
+        padding: 1rem;
+        background-color: white;
+        border-radius: 6px;
+
+        main{
+            > header{
+                text-align: center;
+                padding-bottom: 0.5rem;
+                border-bottom: 0.05rem solid rgb(220,220,220);
+            }
+
+            h3{
+                color: var(--gray-text);
+            }
+
+            .container_table_aulas{
+                header{
+                    width: 100%;
+                    background-color: var(--gray-4);
+                    margin-top: 0.8rem;
+                    display: flex;
+                    
+                    p{
+                        text-transform: uppercase;
+                        width: 20%;
+                        text-align: center;
+                        font-weight: 600;
+                        font-size: 0.75rem;
+                        padding: 0.3rem;
+                        color: var(--gray-text);
+                    }
+                }
+
+                .container_content_lista_aulas{
+                    width: 100%;
+                }
+
+                .content_lista_aulas{
+                    width: 100%;
+
+                    .aula{
+                        display: flex;
+                        width: 100%;
+                        padding-left: 0.5rem;
+                        background-color: var(--gray-2);
+                        border-bottom: 1px solid var(--gray-4);
+                        transition: 0.2s all ease-in-out;
+
+                        p{
+                            width: 20%;
+                            font-size: 0.75rem;
+                            color: var(--gray-text);
+                            font-weight: 600;
+                            padding: 0.5rem 0rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 0.5rem;
+
+                            img{
+                                width: 1.25rem;
+                            }
+                        }
+
+                        .titulo{
+                            color:var(--azul-secundary);
+                            transition: 0.2s all ease-in-out;
+
+                            &:hover{
+                                cursor: pointer;
+                                color:var(--azul-primary);
+                            }
+                        }
+
+                        &:hover{
+                            background-color: var(--gray-5);
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    //DADOS JORNADA
+
+    .container_content_dados_jornada{
+        background-color: var(--white);
+        border-radius: 6px;
+        padding: 1rem;
+
+        h3{
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--gray-4);
+        }
+
+        .container_desc_dados_jornada{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 1rem;
+
+            main{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 0.5rem;
+                gap: 1rem;
+
+                img{
+                    width: 2rem;
+                }
+
+                p{
+                    font-weight: 600;
+                    font-size: 0.7rem;
+                    color: var(--azul-secundary);
+                }
+
+                span{
+                    color: var(--gray-text);
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
 `

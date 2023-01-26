@@ -1,46 +1,60 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { JornadaProps } from "../../@types/jornada";
+import { EadContext } from "../../contexts/EadContext/JornadaAndCursos/EadContext";
 import { apiApp } from "../../hooks/useApiApp";
 import { ContainerCadastroAulas } from "./style.cadastro";
 
 
-interface CursoProps{
-    Id:number,
-    Titulo:string,
-    Descricao:string,
-    Categoria:string
-}
+// interface CursoProps{
+//     Id:number,
+//     Titulo:string,
+//     Descricao:string,
+//     Categoria:string
+// }
 
 export function CadastroAulas(){
 
-    const [cursos, setCursos] = useState<CursoProps[]>([]);
+    const [jornadaList, setJornadaList] = useState<JornadaProps[]>([]);
     const[titulo, setTitulo] = useState('');
     const[descricao, setDescricao] = useState('');
     const[urlVideo, setUrlVideo] = useState('');
     const[categoria, setCategoria] = useState('1');
     const[instrutor, setInstrutor] = useState('');
-    const[cursoSelect, setCursoSelect] = useState('');
+    const[jornadaSelect, setJornadaSelect] = useState('');
+    const[dificuldade, setDificuldade] = useState('1');
+    const[tempoAula, setTempoAula] = useState(0);
+
+    const eadContext = useContext(EadContext);
 
     useEffect(() =>{
-        apiApp.get('/cursos').then((response) => {console.log(setCursos(response.data))});
+        setJornadaList(eadContext.jornadas);
+        setJornadaSelect(eadContext.jornadas[0]?.jornadaId.toString());
     }, []);
 
     function submitCurso(){
-
-        if(titulo !== "" && descricao !== "" && urlVideo !== "" && categoria !== "" && instrutor !== "" && cursoSelect !== ""){
+        if(titulo !== "" && descricao !== "" && urlVideo !== "" && categoria !== "" && instrutor !== "" && jornadaSelect !== ""){
 
             const aula = {
-                Titulo: titulo,
-                Descricao: descricao,
-                UrlVideo: urlVideo,
-                Categoria: categoria,
-                Instrutor: instrutor,
-                Curso: cursoSelect,
-                id: Math.random()
+                cursoId: parseInt((Math.random() * 100).toFixed(0)),
+                jornadaId: parseInt(jornadaSelect),
+                dataAtualizacao: new Date(),
+                titulo: titulo,
+                autor: instrutor,
+                cursoStatusId: 1,
+                cursoStatus: 'Em aberto',
+                nota: null,
+                cursoDificuldadeId: parseInt(dificuldade),
+                cursoDificuldade: dificuldade == '1' ? 'Iniciante' : dificuldade == '2' ? 'Intermediário' : 'Avançado',
+                cursoDuracao: tempoAula,
+                favorito: false,
+                descricaoPopup: descricao
             }
 
-            apiApp.post('/aulas', aula).then((res) => {res.status})
-            toast.success('Aula cadastrada com sucesso, ir para página de aula - ' + 'http://127.0.0.1:5173/Aulas');
+            eadContext.setCursoFunction([aula]);
+
+            // apiApp.post('/aulas', aula).then((res) => {res.status})
+            toast.success('Aula cadastrada com sucesso!');
 
         }else{
             toast.error('Preencha todos os campos antes de enviar!');
@@ -111,15 +125,32 @@ export function CadastroAulas(){
 
                     <div className="div_container_inputs">
                         <label htmlFor="">Curso:</label>
-                        <select onChange={(e) => {setCursoSelect(e.target.value)}}>
-                            {cursos.map(curso => {
+                        <select onChange={(e) => {setJornadaSelect(e.target.value)}}>
+                            {jornadaList.map(jornada => {
                                 return(
-                                    <option key={curso.Id} value={curso.Id}>{curso.Titulo}</option>
+                                    <option key={jornada.jornadaId} value={jornada.jornadaId}>{jornada.titulo}</option>
                                 )
                             })}
                         </select>
                     </div>
 
+                </div>
+                <div className="container_content_3">
+                    <div className="div_container_inputs">
+                            <label htmlFor="">Dificuldade:</label>
+                            <select onChange={(e) => {setDificuldade(e.target.value)}}>
+                                <option value={1}>INICIANTE</option>
+                                <option value={2}>INTERMEDIÁRIO</option>
+                                <option value={3}>AVANÇADO</option>
+                        </select>
+                    </div>
+                    <div className="div_container_inputs">
+                        <label htmlFor="">Tempo de aula (Minutos):</label>
+                        <input 
+                        type="number" 
+                        value={tempoAula}
+                        onChange={(e) => {setTempoAula(parseInt(e.target.value))}}/>
+                    </div>
                 </div>
 
                 <button type="button" onClick={submitCurso}>Enviar</button>
